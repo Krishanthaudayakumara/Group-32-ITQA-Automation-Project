@@ -1,3 +1,5 @@
 # Exclude Serenity BDD configuration files
 serenity.properties
 serenity.conf
+
+.env
