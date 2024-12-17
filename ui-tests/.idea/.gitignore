@@ -12,3 +12,5 @@ target/
 
 # Ignore serenity.properties files
 **/serenity.properties
+
+.env
