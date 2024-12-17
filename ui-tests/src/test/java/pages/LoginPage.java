@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 public class LoginPage extends PageObject {
 
     private String baseUrl;
-
     // Locators
     private By emailField = By.id("input-email");
     private By passwordField = By.id("input-password");
