@@ -1,4 +1,8 @@
-runners/TestRunner.class
 steps/LoginSteps.class
+pages/CartPage.class
+pages/ProductPage.class
 com/example/AppTest.class
+steps/AddProductToCartSteps.class
+pages/HomePage.class
+runners/TestRunner.class
 pages/LoginPage.class
