@@ -47,7 +47,17 @@ public class AddProductToCartSteps {
     @And("the user adds the product to the cart")
     public void the_user_adds_the_product_to_the_cart() {
         productPage.addToCart();
+    }
+
+    @And("the user navigates to the cart page")
+    public void the_user_navigates_to_the_cart_page() {
         productPage.clickViewCart();
+    }
+
+    @When("the user removes the product from the cart")
+    public void the_user_removes_the_product_from_the_cart(){
+        cartPage.verifyShoppingCartPage();
+        cartPage.removeProductFromCart();
     }
 
 
@@ -55,5 +65,10 @@ public class AddProductToCartSteps {
     public void the_product_should_appear_in_the_cart_with_the_correct_details() {
         Assertions.assertThat(cartPage.getProductName()).isEqualTo(productName);
         Assertions.assertThat(cartPage.getProductPrice()).isEqualTo(productPrice);
+    }
+
+    @Then("the product should no longer be displayed in the cart")
+    public void the_product_should_no_longer_be_displayed_in_the_cart() {
+        Assertions.assertThat(cartPage.isEmptyCartMessageDisplayed()).isTrue();
     }
 }

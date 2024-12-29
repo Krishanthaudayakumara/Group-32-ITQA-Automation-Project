@@ -12,4 +12,5 @@ Feature: Add Product to Cart
     And the user navigates to the product details page
     And the product is available
     And the user adds the product to the cart
+    And the user navigates to the cart page
     Then the product should appear in the cart with the correct details
