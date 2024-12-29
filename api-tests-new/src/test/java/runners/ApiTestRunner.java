@@ -6,8 +6,8 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features", // Adjust if your feature files are stored elsewhere
-        glue = "stepdefinitions", // Correct path for step definitions
+        features = "src/test/resources/features", // Feature File Path
+        glue = "stepDefinitions", // Step definitions folder path
         plugin = {"pretty", "html:target/cucumber-reports.html"} // Generate reports
 )
 public class ApiTestRunner {
