@@ -49,7 +49,7 @@ public class AddProductToCartSteps {
         productPage.addToCart();
     }
 
-    @And("the user navigates to the cart page")
+    @When("the user navigates to the cart page")
     public void the_user_navigates_to_the_cart_page() {
         productPage.clickViewCart();
     }
@@ -71,4 +71,5 @@ public class AddProductToCartSteps {
     public void the_product_should_no_longer_be_displayed_in_the_cart() {
         Assertions.assertThat(cartPage.isEmptyCartMessageDisplayed()).isTrue();
     }
+
 }
