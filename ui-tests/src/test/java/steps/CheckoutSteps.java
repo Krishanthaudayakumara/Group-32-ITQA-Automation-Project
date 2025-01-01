@@ -21,6 +21,9 @@ public class CheckoutSteps {
     @Steps
     SuccessPage successPage;
 
+    @Steps
+    ProductPage productPage;
+
 
 
     private String productName;
@@ -28,16 +31,24 @@ public class CheckoutSteps {
     private String productQuantity;
     private String productTotal;
 
+    @When("the user click the buy now button")
+    public void the_user_click_the_buy_now_button() {
+        productPage.clickBuyNow();
+    }
+
     @When("the user proceeds to checkout")
     public void the_user_proceeds_to_checkout(){
         cartPage.verifyShoppingCartPage();
         cartPage.proceedToCheckout();
     }
 
-
-    @Then("the checkout page should display the correct product and price details")
-    public void the_checkout_page_should_display_the_correct_product_and_price_details() {
+    @Then("user navigate to checkout page")
+    public void user_navigate_to_checkout_page() {
         checkoutPage.verifyCheckoutPage();
+    }
+
+    @And("the checkout page should display the correct product and price details")
+    public void the_checkout_page_should_display_the_correct_product_and_price_details() {
         productName = checkoutPage.getProductName();
         productPrice = checkoutPage.getProductPrice();
         Assertions.assertThat(checkoutPage.getProductName()).isEqualTo(productName);

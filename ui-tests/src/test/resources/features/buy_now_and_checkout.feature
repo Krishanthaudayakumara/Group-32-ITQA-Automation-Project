@@ -1,4 +1,4 @@
-Feature: Proceed to Checkout from Cart
+Feature: Buy Now and Checkout
 
   Background:
     Given the user is logged in
@@ -6,11 +6,9 @@ Feature: Proceed to Checkout from Cart
     When the user selects a product from the product list
     And the user navigates to the product details page
     And the product is available
-    And the user adds the product to the cart
 
-  Scenario: Proceed to checkout
-    When the user navigates to the cart page
-    And the user proceeds to checkout
+  Scenario: Proceed to checkout by Buy Now
+    When the user click the buy now button
     Then user navigate to checkout page
     And the checkout page should display the correct product and price details
     And the user accepts the terms and conditions
