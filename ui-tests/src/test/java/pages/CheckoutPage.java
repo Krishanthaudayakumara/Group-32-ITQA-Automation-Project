@@ -18,13 +18,26 @@ public class CheckoutPage extends PageObject {
     private By productPrice = By.xpath("//div[@id='checkout-cart']//table/tbody/tr/td[@class='text-right'][2]");
     private By continueButton = By.id("button-save");
     private By termsAndConditionsCheckbox = By.xpath("//label[@for='input-agree']");
-    private By telephoneField = By.id("input-telephone");
+    private By telephoneField = By.id("input-payment-telephone");
     private By billingAddressSection = By.id("payment-address");
     private By subTotal = By.xpath("//table[@id='checkout-total']/tbody/tr[1]/td[2]/strong");
     private By flatShipping = By.xpath("//table[@id='checkout-total']/tbody/tr[2]/td[2]/strong");
     private By ecoTax = By.xpath("//table[@id='checkout-total']/tbody/tr[3]/td[2]/strong");
     private By vat = By.xpath("//table[@id='checkout-total']/tbody/tr[4]/td[2]/strong");
     private By total = By.xpath("//table[@id='checkout-total']/tbody/tr[5]/td[2]/strong");
+    // Guest checkout
+    private By guestCheckoutRadioButton = By.xpath("//label[@for='input-account-guest']");
+    private By firstNameField = By.id("input-payment-firstname");
+    private By lastNameField = By.id("input-payment-lastname");
+    private By emailField = By.id("input-payment-email");
+    private By companyField = By.id("input-payment-company");
+    private By address1Field = By.id("input-payment-address-1");
+    private By address2Field = By.id("input-payment-address-2");
+    private By cityField = By.id("input-payment-city");
+    private By postCodeField = By.id("input-payment-postcode");
+    private By countryDropdown = By.id("input-payment-country");
+    private By zoneDropdown = By.id("input-payment-zone");
+
 
     public void verifyCheckoutPage() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
@@ -93,6 +106,49 @@ public class CheckoutPage extends PageObject {
         WebElement element = find(total);
         waitForCondition().until(ExpectedConditions.visibilityOf(element));
         return element.getText();
+    }
+
+    public void chooseGuestCheckout(){
+        WebElement element = find(guestCheckoutRadioButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
+
+    public void enterFirstName(String firstName) {
+        $(firstNameField).type(firstName);
+    }
+    public void enterLastName(String lastName) {
+        $(lastNameField).type(lastName);
+    }
+
+    public void enterEmail(String email) {
+        $(emailField).type(email);
+    }
+
+    public void enterTelephone(String telephone) {
+        $(telephoneField).type(telephone);
+    }
+    public void enterCompany(String company) {
+        $(companyField).type(company);
+    }
+    public void enterAddress1(String address1) {
+        $(address1Field).type(address1);
+    }
+    public void enterAddress2(String address2) {
+        $(address2Field).type(address2);
+    }
+    public void enterCity(String city) {
+        $(cityField).type(city);
+    }
+    public void enterPostCode(String postCode) {
+        $(postCodeField).type(postCode);
+    }
+
+    public void selectCountry(String country) {
+        $(countryDropdown).selectByVisibleText(country);
+    }
+    public void selectZone(String zone) {
+        $(zoneDropdown).selectByVisibleText(zone);
     }
 
 }
