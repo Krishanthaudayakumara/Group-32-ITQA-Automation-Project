@@ -1,0 +1,16 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Ignore Maven build output directories
+target/
+
+# Ignore serenity.properties files
+**/serenity.properties
+
+.env
