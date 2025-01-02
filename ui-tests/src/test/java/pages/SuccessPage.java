@@ -8,29 +8,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public class SuccessPage extends BasePage {
+public class SuccessPage extends PageObject {
 
     private By successBreadcrumb = By.xpath("//li[text()='Success']");
     private By successMessage = By.xpath("//p[text()='Your order has been successfully processed!']");
     private By continueButton = By.xpath("//a[text()='Continue']");
 
-    public SuccessPage() {
-        super();
-    }
     public boolean isSuccessBreadcrumbPresent() {
-        handleAlerts();
-        WebElement breadcrumb = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(successBreadcrumb));
-        return breadcrumb.isDisplayed();
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            WebElement breadcrumb = wait.until(ExpectedConditions.visibilityOfElementLocated(successBreadcrumb));
+            return breadcrumb.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
     public boolean issuccessMessagePresent() {
-        handleAlerts();
-        WebElement header = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(successMessage));
-        return header.isDisplayed();
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            WebElement header = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
+            return header.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
     public void clickContinueButton() {
-        handleAlerts();
-        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(continueButton));
+        WebElement element = find(continueButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 

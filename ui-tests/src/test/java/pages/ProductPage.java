@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
-public class ProductPage extends BasePage {
+public class ProductPage extends PageObject {
 
     private By availability = By.xpath("//span[text()='In Stock']");
     private By price = By.cssSelector("h3.price-new");
@@ -26,27 +26,22 @@ public class ProductPage extends BasePage {
     private By cartPageHeader = By.xpath("//h1[text()='Shopping Cart']");
 
 
-    public ProductPage() {
-        super();
-    }
     public Boolean checkAvailability() {
-        handleAlerts();
         WebElement element = find(availability);
         waitForCondition().until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
 
     public String getPrice() {
-
-        handleAlerts();
         WebElement element = find(price);
         waitForCondition().until(ExpectedConditions.visibilityOf(element));
         return element.getText();
     }
 
     public void addToCart() {
-        handleAlerts();
-        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(addToCartButton));
+        WebElement element = find(addToCartButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+
         scrollIntoView(element);
         try {
             Thread.sleep(500);
@@ -64,8 +59,9 @@ public class ProductPage extends BasePage {
     }
 
     public void clickBuyNow() {
-        handleAlerts();
-        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(buyNowButton));
+        WebElement element = find(buyNowButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+
         scrollIntoView(element);
         try {
             Thread.sleep(500);
@@ -113,28 +109,30 @@ public class ProductPage extends BasePage {
     }
 
     public void clickViewCart(){
-        handleAlerts();
-        WebElement viewCart = waitForCondition().until(ExpectedConditions.elementToBeClickable(viewCartButton));
+        WebElement viewCart = find(viewCartButton);
+        waitFor(viewCart);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(viewCart));
         viewCart.click();
     }
 
     public void navigateToCart() {
-        handleAlerts();
-        WebElement cartElement = waitForCondition().until(ExpectedConditions.elementToBeClickable(cartButton));
+        WebElement cartElement = find(cartButton);
+        waitFor(cartElement);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(cartElement));
         cartElement.click();
     }
 
     public void navigateToEditCartPage() {
-        handleAlerts();
-        WebElement editButton = waitForCondition().until(ExpectedConditions.elementToBeClickable(editCartButton));
+        WebElement editButton = find(editCartButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(editButton));
         editButton.click();
         // Verify that we are on the correct shopping cart page.
         verifyShoppingCartPage();
 
     }
     private void verifyShoppingCartPage() {
-        handleAlerts();
-        WebElement headerElement = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(cartPageHeader));
+        WebElement headerElement = find(cartPageHeader);
+        waitFor(headerElement);
         assertTrue("The header of the shopping cart page is not displayed.", headerElement.isDisplayed());
     }
 }
