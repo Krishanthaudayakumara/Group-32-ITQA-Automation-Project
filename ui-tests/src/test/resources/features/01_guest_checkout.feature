@@ -1,7 +1,8 @@
 Feature: Guest Checkout Functionality
 
   Background:
-    Given the user is on the home page
+    Given the user is not logged in
+    And the user is on the home page
     When the user selects a product from the product list
     And the user navigates to the product details page
     And the product is available

@@ -9,7 +9,7 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
-public class CheckoutPage extends PageObject {
+public class CheckoutPage extends BasePage {
     // Locator for the checkout page heading
     private By checkoutPageHeader = By.xpath("//li[text()='Checkout']");
 
@@ -25,6 +25,7 @@ public class CheckoutPage extends PageObject {
     private By ecoTax = By.xpath("//table[@id='checkout-total']/tbody/tr[3]/td[2]/strong");
     private By vat = By.xpath("//table[@id='checkout-total']/tbody/tr[4]/td[2]/strong");
     private By total = By.xpath("//table[@id='checkout-total']/tbody/tr[5]/td[2]/strong");
+    private By existingAddressLabel = By.xpath("//label[@for='input-payment-address-existing']");
     // Guest checkout
     private By guestCheckoutRadioButton = By.xpath("//label[@for='input-account-guest']");
     private By firstNameField = By.id("input-payment-firstname");
@@ -38,117 +39,138 @@ public class CheckoutPage extends PageObject {
     private By countryDropdown = By.id("input-payment-country");
     private By zoneDropdown = By.id("input-payment-zone");
 
+    public CheckoutPage() {
+        super();
+    }
 
     public void verifyCheckoutPage() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        WebElement headerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(checkoutPageHeader));
-        waitFor(headerElement);
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(checkoutPageHeader));
     }
 
     public String getProductName() {
-        WebElement element = find(productName);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(productName));
         return element.getText();
     }
 
     public String getProductPrice() {
-        WebElement element = find(productPrice);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(productPrice));
         return element.getText();
     }
 
     public void clickContinueButton() {
-        WebElement element = find(continueButton);
-        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(continueButton));
         element.click();
     }
 
     public boolean isTermsAndConditionsCheckboxVisible() {
+        handleAlerts();
         return find(termsAndConditionsCheckbox).isDisplayed();
     }
 
     public void checkTermsAndConditions(){
-        WebElement element = find(termsAndConditionsCheckbox);
-        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(termsAndConditionsCheckbox));
         element.click();
 //        assertTrue("The checkbox is not checked.", element.isSelected());
     }
 
     public boolean isTelephoneFieldVisible() {
+        handleAlerts();
         return find(telephoneField).isDisplayed();
     }
 
     public boolean isBillingAddressSectionVisible() {
+        handleAlerts();
         return find(billingAddressSection).isDisplayed();
     }
 
     public String getSubTotal(){
-        WebElement element = find(subTotal);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(subTotal));
         return element.getText();
     }
     public String getFlatShipping(){
-        WebElement element = find(flatShipping);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(flatShipping));
         return element.getText();
     }
     public String getEcoTax(){
-        WebElement element = find(ecoTax);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(ecoTax));
         return element.getText();
     }
     public String getVat(){
-        WebElement element = find(vat);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(vat));
         return element.getText();
     }
     public String getTotal(){
-        WebElement element = find(total);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(total));
         return element.getText();
     }
 
     public void chooseGuestCheckout(){
-        WebElement element = find(guestCheckoutRadioButton);
-        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(guestCheckoutRadioButton));
         element.click();
     }
 
     public void enterFirstName(String firstName) {
+        handleAlerts();
         $(firstNameField).type(firstName);
     }
     public void enterLastName(String lastName) {
+        handleAlerts();
         $(lastNameField).type(lastName);
     }
 
     public void enterEmail(String email) {
+        handleAlerts();
         $(emailField).type(email);
     }
 
     public void enterTelephone(String telephone) {
+        handleAlerts();
         $(telephoneField).type(telephone);
     }
     public void enterCompany(String company) {
+        handleAlerts();
         $(companyField).type(company);
     }
     public void enterAddress1(String address1) {
+        handleAlerts();
         $(address1Field).type(address1);
     }
     public void enterAddress2(String address2) {
+        handleAlerts();
         $(address2Field).type(address2);
     }
     public void enterCity(String city) {
+        handleAlerts();
         $(cityField).type(city);
     }
     public void enterPostCode(String postCode) {
+        handleAlerts();
         $(postCodeField).type(postCode);
     }
 
     public void selectCountry(String country) {
+        handleAlerts();
         $(countryDropdown).selectByVisibleText(country);
     }
     public void selectZone(String zone) {
+        handleAlerts();
         $(zoneDropdown).selectByVisibleText(zone);
     }
 
+    public void selectExistingAddress(){
+        handleAlerts();
+        WebElement element = waitForCondition().until(ExpectedConditions.elementToBeClickable(existingAddressLabel));
+        element.click();
+    }
 }

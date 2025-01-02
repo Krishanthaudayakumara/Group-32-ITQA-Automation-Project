@@ -2,6 +2,7 @@ pages/CartPage.class
 com/example/AppTest.class
 pages/ConfirmOrderPage.class
 pages/HomePage.class
+pages/BasePage.class
 runners/TestRunner.class
 steps/LoginSteps.class
 pages/SuccessPage.class

@@ -61,9 +61,8 @@ public class CheckoutSteps {
         checkoutPage.enterPostCode("ABC123");
         checkoutPage.selectCountry("United Kingdom");
         checkoutPage.selectZone("Lancashire");
-
-
     }
+
     @Then("user navigate to checkout page")
     public void user_navigate_to_checkout_page() {
         checkoutPage.verifyCheckoutPage();
@@ -75,6 +74,11 @@ public class CheckoutSteps {
         productPrice = checkoutPage.getProductPrice();
         Assertions.assertThat(checkoutPage.getProductName()).isEqualTo(productName);
         Assertions.assertThat(checkoutPage.getProductPrice()).isEqualTo(productPrice);
+    }
+
+    @And("user pick existing address")
+    public void user_pick_existing_address() {
+        checkoutPage.selectExistingAddress();
     }
 
     @And("the user accepts the terms and conditions")
