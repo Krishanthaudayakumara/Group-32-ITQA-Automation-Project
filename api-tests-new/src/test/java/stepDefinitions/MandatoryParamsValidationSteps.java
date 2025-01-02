@@ -5,12 +5,13 @@ import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.example.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
 public class MandatoryParamsValidationSteps {
 
-    private static final String BASE_URL = "http://localhost:7081/api"; // API base URL
+    private static final String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
     private static Response response;
 
     @When("the {string} user attempts to create a book with title {string} and author {string}")
