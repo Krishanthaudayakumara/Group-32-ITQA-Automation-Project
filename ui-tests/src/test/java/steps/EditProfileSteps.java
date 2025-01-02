@@ -4,12 +4,11 @@ import io.cucumber.java.en.*;
 import net.serenitybdd.annotations.Steps;
 import org.assertj.core.api.Assertions;
 import pages.EditProfilePage;
-import steps.LoginSteps;
 
 public class EditProfileSteps {
 
     @Steps
-    LoginSteps loginSteps; // Reuse the existing login steps
+    LoginSteps loginSteps;
 
     @Steps
     EditProfilePage editProfilePage;
@@ -26,9 +25,12 @@ public class EditProfileSteps {
         editProfilePage.navigateToEditProfilePage();
     }
 
-    @When("the user updates the last name to {string}")
-    public void the_user_updates_last_name(String newLastName) {
-        editProfilePage.updateLastName(newLastName);
+    @When("the user updates their profile with first name {string}, last name {string}, email {string}, and telephone {string}")
+    public void the_user_updates_profile(String firstName, String lastName, String email, String telephone) {
+        editProfilePage.updateFirstName(firstName);
+        editProfilePage.updateLastName(lastName);
+        editProfilePage.updateEmail(email);
+        editProfilePage.updateTelephone(telephone);
         editProfilePage.clickContinueButton();
     }
 
