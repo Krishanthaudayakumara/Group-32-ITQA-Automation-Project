@@ -10,7 +10,9 @@ public class CartPage extends PageObject {
     private By productPrice = By.xpath("//form//table/tbody/tr/td[@class='text-right'][2]");
     private By removeButton = By.xpath("//button[@class='btn btn-danger']");
     private By emptyCartMessage = By.xpath("//div[@id='content']/p[text()='Your shopping cart is empty!']");
+    //locator to the 'Shopping Cart' text in the breadcrumb
     private By cartPageHeader = By.xpath("//li[text()='Shopping Cart']");
+    private By checkoutButton = By.xpath("//a[contains(text(), 'Checkout')]");
 
 
     public String getProductName() {
@@ -40,5 +42,10 @@ public class CartPage extends PageObject {
         // assertTrue("The header of the shopping cart page is not displayed.", headerElement.isDisplayed());
         waitForCondition().until(ExpectedConditions.visibilityOf(headerElement));
 
+    }
+    public void proceedToCheckout() {
+        WebElement element = find(checkoutButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
     }
 }

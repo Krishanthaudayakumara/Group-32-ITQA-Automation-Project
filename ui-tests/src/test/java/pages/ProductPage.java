@@ -16,6 +16,7 @@ public class ProductPage extends PageObject {
     private By availability = By.xpath("//span[text()='In Stock']");
     private By price = By.cssSelector("h3.price-new");
     private By addToCartButton = By.cssSelector("#entry_216842 button.text.btn.btn-md.btn-secondary.btn-block.btn-cart.button-cart.cart-103");
+    private By buyNowButton = By.cssSelector("#entry_216843 button.text.btn.btn-md.btn-primary.btn-block.btn-buynow.button-buynow.cart-103");
     private By cartButton = By.cssSelector("a[aria-controls='cart-total-drawer']");
     private By successToast = By.cssSelector("div.toast.m-3.fade.show");
     private By viewCartButton = By.xpath("//a[contains(text(), 'View Cart')]");
@@ -55,6 +56,24 @@ public class ProductPage extends PageObject {
         }
 
         waitForCondition().until(ExpectedConditions.visibilityOfElementLocated(successToast));
+    }
+
+    public void clickBuyNow() {
+        WebElement element = find(buyNowButton);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+
+        scrollIntoView(element);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        if (checkOverlayPresent()){
+            //Handle the overlay if it exists
+        }
+        if (!isClickSuccessful(element)) {
+            clickUsingJavaScript(element);
+        }
     }
 
 
