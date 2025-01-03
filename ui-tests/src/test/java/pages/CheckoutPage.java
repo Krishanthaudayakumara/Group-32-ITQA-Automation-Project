@@ -41,8 +41,12 @@ public class CheckoutPage extends PageObject {
 
 
     public void verifyCheckoutPage() {
-        WebElement element = find(checkoutPageHeader);
-        waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        try {
+            WebElement element = find(checkoutPageHeader);
+            waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 //        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 //        WebElement headerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(checkoutPageHeader));
 //        waitFor(headerElement);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Buy Now and Checkout" skipped="0" tests="1" time="69.54" timestamp="2025-01-03 06:53:21"><testcase name="Proceed to checkout by Buy Now"><error message="Expected condition failed: waiting for visibility of element located by By.xpath: //h1[text()='Confirm Order'] (tried for 10 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.27.0', revision: 'd6e718d134'&#10;System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'&#10;Driver info: net.thucydides.core.webdriver.DevToolsWebDriverFacade" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for visibility of element located by By.xpath: //h1[text()='Confirm Order'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: net.thucydides.core.webdriver.DevToolsWebDriverFacade</error><system-err>Expected condition failed: waiting for visibility of element located by By.xpath: //h1[text()='Confirm Order'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: net.thucydides.core.webdriver.DevToolsWebDriverFacade
+pages.ConfirmOrderPage.verifyConfirmOrderPage(ConfirmOrderPage.java:31)
+steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:96)
+✽.the user should be able to see the confirm order page(classpath:features/03_buy_now_and_checkout.feature:17)
+</system-err></testcase></testsuite>

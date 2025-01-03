@@ -1,12 +1,11 @@
 pages/CartPage.class
-com/example/AppTest.class
 pages/ConfirmOrderPage.class
 pages/HomePage.class
-runners/TestRunner.class
 steps/LoginSteps.class
 pages/SuccessPage.class
 steps/CheckoutSteps.class
 pages/CheckoutPage.class
 pages/ProductPage.class
+CucumberTestSuite.class
 steps/AddProductToCartSteps.class
 pages/LoginPage.class

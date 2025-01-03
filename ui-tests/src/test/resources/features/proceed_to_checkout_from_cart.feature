@@ -4,7 +4,7 @@ Feature: Proceed to Checkout from Cart
     Given the user is logged in
     And the user is on the home page
     When the user selects a product from the product list
-      And the user navigates to the product details page
+    And the user navigates to the product details page
     And the product is available
     And the user adds the product to the cart
 

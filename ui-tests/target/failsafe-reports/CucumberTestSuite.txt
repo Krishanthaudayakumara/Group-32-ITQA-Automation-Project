@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: CucumberTestSuite
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 113.6 s <<< FAILURE! -- in CucumberTestSuite
+Buy Now and Checkout.Proceed to checkout by Buy Now -- Time elapsed: 71.06 s <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.xpath: //h1[text()='Confirm Order'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: net.thucydides.core.webdriver.DevToolsWebDriverFacade
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at pages.ConfirmOrderPage.verifyConfirmOrderPage(ConfirmOrderPage.java:31)
+	at pages.ConfirmOrderPage$ByteBuddy$cWIEBNKA.verifyConfirmOrderPage$accessor$0GdwTiCi(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
+	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
+	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at pages.ConfirmOrderPage$ByteBuddy$cWIEBNKA.verifyConfirmOrderPage(Unknown Source)
+	at steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:96)
+	at ✽.the user should be able to see the confirm order page(classpath:features/03_buy_now_and_checkout.feature:17)
+
