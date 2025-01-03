@@ -19,14 +19,17 @@ public class AddNewAddressSteps {
 
     @Given("the user is logged in for add new address")
     public void the_user_is_logged_in_for_add_new_address() {
-        loginPage.openLoginPage();
-        loginPage.enterEmail(dotenv.get("LOGIN_USERNAME"));
-        loginPage.enterPassword(dotenv.get("LOGIN_PASSWORD"));
-        loginPage.clickLoginButton();
-        Assertions.assertThat(loginPage.getCurrentUrl())
-                .as("Login failed, not on Account Dashboard")
-                .contains("route=account/account");
+        if (!loginPage.isLoggedIn()) {
+            loginPage.openLoginPage();
+            loginPage.enterEmail(dotenv.get("LOGIN_USERNAME"));
+            loginPage.enterPassword(dotenv.get("LOGIN_PASSWORD"));
+            loginPage.clickLoginButton();
+            Assertions.assertThat(loginPage.getCurrentUrl())
+                    .contains("route=account/account")
+                    .as("Login failed, user is not on the Account Dashboard.");
+        }
     }
+
 
     @When("the user navigates to the {string} section for add new address")
     public void the_user_navigates_to_the_section(String section) {
@@ -54,7 +57,7 @@ public class AddNewAddressSteps {
                 "12345",             // Post Code
                 "United Kingdom",    // Country
                 "Greater London",    // Region/State
-                true                 // Default Address
+                false                // Default Address
         );
     }
 

@@ -2,6 +2,9 @@ package pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class
 AddressBookPage extends PageObject {
@@ -56,8 +59,13 @@ AddressBookPage extends PageObject {
         $(address2Field).type(address2);
         $(cityField).type(city);
         $(postCodeField).type(postCode);
-        $(countryDropdown).selectByVisibleText(country);
-        $(regionDropdown).selectByVisibleText(region);
+
+        // Wait for the country dropdown to be enabled
+        WebElement countryElement = waitFor(ExpectedConditions.elementToBeClickable(countryDropdown));
+        new Select(countryElement).selectByVisibleText(country);
+
+        WebElement regionElement = waitFor(ExpectedConditions.elementToBeClickable(regionDropdown));
+        new Select(regionElement).selectByVisibleText(region);
 
         if (isDefault) {
             $(defaultAddressYesRadio).click();
@@ -68,6 +76,7 @@ AddressBookPage extends PageObject {
         $(continueButton).click();
     }
 
+
     public String getSuccessMessage() {
         return $(successMessage).getText();
     }
@@ -77,14 +86,18 @@ AddressBookPage extends PageObject {
     }
 
     public void clickDeleteFirstAddress() {
-        // Click the "Delete" button for the first address
-        $(firstAddressDeleteButton).click();
+        if (isAddressListEmpty()) {
+            throw new IllegalStateException("No address available to delete.");
+        }
+        WebElement deleteButton = $(firstAddressDeleteButton).waitUntilEnabled();
+        deleteButton.click();
 
-        // If no alert is expected, remove this part
+        // Handle alert if present
         if (isAlertPresent()) {
-            getAlert().accept(); // Accept the alert if it appears
+            getAlert().accept(); // Accept the confirmation alert
         }
     }
+
     private boolean isAlertPresent() {
         try {
             getAlert();
@@ -99,6 +112,7 @@ AddressBookPage extends PageObject {
     }
 
     public String getDeleteSuccessMessage() {
-        return $(successAlert).getText();
+        return $(successAlert).waitUntilVisible().getText();
     }
+
 }

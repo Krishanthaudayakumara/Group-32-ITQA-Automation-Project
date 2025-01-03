@@ -13,8 +13,7 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber-reports.html",   // HTML report
                 "json:target/cucumber-reports/cucumber.json" // JSON report for integrations (optional)
         },
-        monochrome = true    ,                          // Output is easier to read
-        tags = "@changePassword"
+        monochrome = true
 
 )
 public class TestRunner {

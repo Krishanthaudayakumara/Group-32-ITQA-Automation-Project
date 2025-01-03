@@ -19,14 +19,17 @@ public class UpdateAddressSteps {
 
     @Given("the user is logged in for Address Book Change")
     public void the_user_is_logged_in_for_address_book_change() {
-        loginPage.openLoginPage();
-        loginPage.enterEmail(dotenv.get("LOGIN_USERNAME"));
-        loginPage.enterPassword(dotenv.get("LOGIN_PASSWORD"));
-        loginPage.clickLoginButton();
-        Assertions.assertThat(loginPage.getCurrentUrl())
-                .as("Login failed, not on Account Dashboard")
-                .contains("route=account/account");
+        if (!loginPage.isLoggedIn()) { // Check if the user is already logged in
+            loginPage.openLoginPage();
+            loginPage.enterEmail(dotenv.get("LOGIN_USERNAME"));
+            loginPage.enterPassword(dotenv.get("LOGIN_PASSWORD"));
+            loginPage.clickLoginButton();
+            Assertions.assertThat(loginPage.getCurrentUrl())
+                    .as("Login failed, not on Account Dashboard")
+                    .contains("route=account/account");
+        }
     }
+
 
     @When("the user navigates to the {string} section for update address")
     public void the_user_navigates_to_the_section(String section) {

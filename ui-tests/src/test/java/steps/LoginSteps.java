@@ -19,6 +19,27 @@ public class LoginSteps {
 
     @Steps
     LoginPage loginPage;
+    @Given("the user is logged in")
+    public void the_user_is_logged_in() {
+        if (!loginPage.isLoggedIn()) {
+            loginPage.openLoginPage();
+            loginPage.enterEmail(username);
+            loginPage.enterPassword(password);
+            loginPage.clickLoginButton();
+            if(loginPage.isAlertPresent()){
+                loginPage.handleAlert();
+            }
+            Assertions.assertThat(loginPage.getCurrentUrl()).contains("route=account/account");
+
+        }
+    }
+
+    @Given("the user is not logged in")
+    public void the_user_is_not_logged_in() {
+        if (loginPage.isLoggedIn()) {
+            loginPage.logout();
+        }
+    }
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {

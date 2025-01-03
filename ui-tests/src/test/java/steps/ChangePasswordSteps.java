@@ -1,13 +1,19 @@
 package steps;
 
 import io.cucumber.java.en.*;
+import io.github.cdimascio.dotenv.Dotenv;
 import net.serenitybdd.annotations.Steps;
+import org.assertj.core.api.Assertions;
 import pages.ChangePasswordPage;
+import pages.LoginPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChangePasswordSteps {
+    Dotenv dotenv = Dotenv.load();
 
+    @Steps
+    LoginPage loginPage;
     @Steps
     LoginSteps loginSteps;
 
@@ -15,9 +21,15 @@ public class ChangePasswordSteps {
 
     @Given("the user is logged in to change their password")
     public void userIsLoggedInToChangePassword() {
-        loginSteps.the_user_is_on_the_login_page();
-        loginSteps.the_user_enters_valid_email_and_password();
-        loginSteps.the_user_clicks_the_login_button();
+        if (!loginPage.isLoggedIn()) {
+            loginPage.openLoginPage();
+            loginPage.enterEmail(dotenv.get("LOGIN_USERNAME"));
+            loginPage.enterPassword(dotenv.get("LOGIN_PASSWORD"));
+            loginPage.clickLoginButton();
+            Assertions.assertThat(loginPage.getCurrentUrl())
+                    .as("User login failed, not redirected to account dashboard.")
+                    .contains("route=account/account");
+        }
     }
 
     @Given("the user navigates to the change password page")
@@ -54,3 +66,4 @@ public class ChangePasswordSteps {
                 .isEqualTo(expectedMessage);
     }
 }
+
