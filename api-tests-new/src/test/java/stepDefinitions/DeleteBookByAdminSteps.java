@@ -5,12 +5,13 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.example.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
 public class DeleteBookByAdminSteps {
 
-    private static final String BASE_URL = "http://localhost:7081/api"; // API base URL
+    private static final String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
     private static Response response;
 
     @Given("the admin user is authorized to delete books")

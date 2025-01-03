@@ -6,18 +6,19 @@ import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.example.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
 public class CreateBookSteps {
 
-    private static final String BASE_URL = "http://localhost:7081/api"; // API base URL
+    private String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
     private static Response response;  // Holds the response from the API
 
     @Given("the {string} user is authorized")
     public void the_user_is_authorized(String role) {
         String username = role.equals("admin") ? "admin" : "user";
-        String password = "password";
+        String password = ConfigLoader.getProperty("password");
         RestAssured.authentication = RestAssured.basic(username, password);
     }
 
