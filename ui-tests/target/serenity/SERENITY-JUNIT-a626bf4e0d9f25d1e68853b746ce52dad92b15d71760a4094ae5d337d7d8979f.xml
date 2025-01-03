@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="2" name="User Workflow" skipped="0" tests="7" time="339.21" timestamp="2025-01-03 09:57:04"><testcase name="Add a new address to the address book"/><testcase name="Update the first address in the Address Book"/><testcase name="Delete the first address from the address book"><error message="Expected condition failed: waiting for By.cssSelector: div.alert.alert-success.alert-dismissible to be displayed (tried for 5 second(s) with 100 milliseconds interval)&#10;Build info: version: '4.27.0', revision: 'd6e718d134'&#10;System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Expected condition failed: waiting for By.cssSelector: div.alert.alert-success.alert-dismissible to be displayed (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: driver.version: unknown</error><system-err>Expected condition failed: waiting for By.cssSelector: div.alert.alert-success.alert-dismissible to be displayed (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: driver.version: unknown
+pages.AddressBookPage.getDeleteSuccessMessage(AddressBookPage.java:115)
+steps.DeleteAddressSteps.a_success_message_should_be_displayed(DeleteAddressSteps.java:58)
+✽.a success delete message should be displayed(classpath:features/UserAccountWorkFlow.feature:21)
+</system-err></testcase><testcase name="Successfully change the user password"/><testcase name="Failed password change due to incorrect current password"/><testcase name="Validate incorrect telephone number during profile update"><failure message="[Expected error message is not displayed.] &#10;expected: &quot;Invalid mobile number format.&quot;&#10; but was: &quot;Warning: E-Mail address is already registered!&quot;" type="org.opentest4j.AssertionFailedError">[Expected error message is not displayed.] 
+expected: "Invalid mobile number format."
+ but was: "Warning: E-Mail address is already registered!"</failure><system-err>[Expected error message is not displayed.] 
+expected: "Invalid mobile number format."
+ but was: "Warning: E-Mail address is already registered!"
+steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)
+✽.an error message should be displayed "Invalid mobile number format."(classpath:features/UserAccountWorkFlow.feature:43)
+</system-err></testcase><testcase name="Successfully update all profile fields"><failure message="Expected success message is not displayed." type="org.opentest4j.AssertionFailedError">Expected success message is not displayed.</failure><system-err>Expected success message is not displayed.
+steps.EditProfileSteps.a_success_message_should_be_displayed(EditProfileSteps.java:60)
+✽.a success message should be displayed(classpath:features/UserAccountWorkFlow.feature:50)
+</system-err></testcase></testsuite>
