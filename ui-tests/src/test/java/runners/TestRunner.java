@@ -6,15 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",  // Path to your feature files
-        glue = "steps",                            // Package where your step definitions are located
+        features = "src/test/resources/features",
+        glue = "steps",      // <--- Make sure this matches the package of your steps
         plugin = {
-                "pretty",                              // Pretty output in console
-                "html:target/cucumber-reports.html",    // HTML report
-                "json:target/cucumber-reports/cucumber.json"  // JSON report for integrations (optional)
+                "pretty",
+                "html:target/cucumber-reports.html",
+                "json:target/cucumber-reports/cucumber.json"
         },
-        monochrome = true,                         // Output is easier to read
-        tags = "@smoke"                            // (Optional) You can specify tags if you want to run specific scenarios
+        monochrome = true,
+        tags = "@smoke"
 )
 public class TestRunner {
 }
