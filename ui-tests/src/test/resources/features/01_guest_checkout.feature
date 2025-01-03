@@ -21,3 +21,12 @@ Feature: Guest Checkout Functionality
     And the user confirms the order
     Then the user navigates to the success page
     And user click continue button
+
+
+  Scenario: Proceed to checkout as guest user with incorrect telephone number
+    When the user proceeds to checkout
+    And the user chooses guest checkout
+    Then user navigate to checkout page
+    And the checkout page should display the correct product and price details
+    When the user fills the all the checkout details with incorrect telephone number
+    Then an error message should be displayed "Invalid mobile number format."

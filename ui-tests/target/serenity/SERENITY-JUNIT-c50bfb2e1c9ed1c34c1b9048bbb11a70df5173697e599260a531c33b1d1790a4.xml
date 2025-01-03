@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="User Workflow" skipped="0" tests="8" time="222.18" timestamp="2025-01-03 07:42:37"><testcase name="Successful login with valid credentials"/><testcase name="Add a new address to the address book"/><testcase name="Update the first address in the Address Book"/><testcase name="Delete the first address from the address book"/><testcase name="Successfully change the user password"/><testcase name="Failed password change due to incorrect current password"/><testcase name="Validate incorrect telephone number during profile update"><failure message="[Expected error message is not displayed.] &#13;&#10;expected: &quot;Invalid mobile number format.&quot;&#13;&#10; but was: &quot;&quot;" type="org.opentest4j.AssertionFailedError">[Expected error message is not displayed.] &#13;
-expected: "Invalid mobile number format."&#13;
- but was: ""</failure><system-err>[Expected error message is not displayed.] &#13;
-expected: "Invalid mobile number format."&#13;
- but was: ""&#13;
-steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)&#13;
-✽.an error message should be displayed "Invalid mobile number format."(classpath:features/UserAccountWorkFlow.feature:49)&#13;
-</system-err></testcase><testcase name="Successfully update all profile fields"/></testsuite>
