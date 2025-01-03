@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Proceed to Checkout from Cart" skipped="0" tests="1" time="31.96" timestamp="2025-01-03 07:46:23"><testcase name="Proceed to checkout"><error message="Expected condition failed: waiting for visibility of By.xpath: //h4[@class='title']/a[text()='HTC Touch HD'] (tried for 5 second(s) with 250 milliseconds interval)&#10;Build info: version: '4.27.0', revision: 'd6e718d134'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for visibility of By.xpath: //h4[@class='title']/a[text()='HTC Touch HD'] (tried for 5 second(s) with 250 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: driver.version: unknown</error><system-err>Expected condition failed: waiting for visibility of By.xpath: //h4[@class='title']/a[text()='HTC Touch HD'] (tried for 5 second(s) with 250 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: driver.version: unknown&#13;
+pages.HomePage.selectProductByName(HomePage.java:26)&#13;
+steps.AddProductToCartSteps.the_user_selects_a_product_from_the_product_list(AddProductToCartSteps.java:34)&#13;
+✽.the user selects a product from the product list(classpath:features/proceed_to_checkout_from_cart.feature:6)&#13;
+</system-err></testcase></testsuite>
