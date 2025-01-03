@@ -14,8 +14,8 @@ public class MandatoryParamsValidationSteps {
     private static final String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
     private static Response response;
 
-    @When("the {string} user attempts to create a book with title {string} and author {string}")
-    public void the_user_attempts_to_create_a_book_with_invalid_parameters(String role, String title, String author) {
+    @When("the {string} attempts to create a book with title {string} and author {string}")
+    public void the_attempts_to_create_a_book_with_title_and_author(String role, String title, String author) {
         String requestBody = String.format("{\"title\": \"%s\", \"author\": \"%s\"}", title, author);
 
         response = RestAssured.given()
