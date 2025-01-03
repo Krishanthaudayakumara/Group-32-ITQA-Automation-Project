@@ -4,16 +4,13 @@ import io.restassured.response.Response;
 
 public class UpdateBookSteps {
 
-    private static Response response;
+    @Then("the book should be updated successfully with status code {int}")
+    public void the_book_should_be_updated_successfully(int statusCode) {
+        assertEquals(statusCode, response.getStatusCode());
+    }
 
-    @When("the {string} user updates a book with id {int}, title {string}, and author {string}")
-    public void the_user_updates_a_book_with_id_title_and_author(String role, int id, String title, String author) {
-        String requestBody = String.format("{\"id\": %d, \"title\": \"%s\", \"author\": \"%s\"}", id, title, author);
-
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .put(BASE_URL + "/books/" + id);
+    @Then("an error response with status code {int} should be returned")
+    public void an_error_response_should_be_returned(int statusCode) {
+        assertEquals(statusCode, response.getStatusCode());
     }
 }
