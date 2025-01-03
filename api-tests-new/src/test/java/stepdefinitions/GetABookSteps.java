@@ -17,14 +17,14 @@ public class GetABookSteps {
     private static Response response;
     public int responseStatusCode;
 
-    @When("The {string} sends the get API request with {int}")
-    public void theSendsTheGetAPIRequestWith(String role, int bookId) {
+    @When("The user sends the get API request with {int}")
+    public void theUserSendsTheGetAPIRequestWith(int bookId) {
         httpRequest = RestAssured.given();
         response = httpRequest.get(BASE_URL + "books/" + bookId);
     }
 
-    @Then("The requested book should be retrieved successfully with status code as {int}")
-    public void theRequestedBookShouldBeRetrievedSuccessfullyWithStatusCodeAs(int expectedStatusCode) {
+    @Then("The requested book {int} should be retrieved successfully with status code as {int}")
+    public void theRequestedBookShouldBeRetrievedSuccessfullyWithStatusCodeAs(int bookId, int expectedStatusCode) {
         // Retrieve the actual status code from the API response
         responseStatusCode = response.getStatusCode();
 
@@ -33,13 +33,14 @@ public class GetABookSteps {
 
         // Verify that the response body contains the correct book id
         int bookIdInResponse = response.jsonPath().getInt("id");
-        assertEquals("The returned book ID does not match the requested ID.", 1, bookIdInResponse); // Check if the returned ID is 1
+        assertEquals("The returned book ID does not match the requested ID.", bookId, bookIdInResponse); // Check if the returned ID is 1
     }
 
     @Then("The message as {string} should be appeared")
     public void theMessageAsShouldBeAppeared(String message) {
         String responseBody = response.getBody().asString();
         assertNotNull("Response body should not be null", responseBody);
+        assertEquals("Book not found message should be retrieved.", responseBody, message);
     }
 
     @And("The status code should be retrieved as {int}")
@@ -50,8 +51,8 @@ public class GetABookSteps {
         assertEquals("Expected status code does not match with the response status code.", expectedStatusCode, responseStatusCode);
     }
 
-    @When("The {string} sends the get API request with {string}")
-    public void theSendsTheGetAPIRequestWith(String role, String string) {
+    @When("The user sends the get API request with {string}")
+    public void theSendsTheGetAPIRequestWith(String string) {
         httpRequest = RestAssured.given();
         response = httpRequest.get(BASE_URL + "books/" + string);
     }
