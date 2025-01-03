@@ -1,5 +1,6 @@
 # Exclude Serenity BDD configuration files
 serenity.properties
 serenity.conf
+.idea
 
 .env
