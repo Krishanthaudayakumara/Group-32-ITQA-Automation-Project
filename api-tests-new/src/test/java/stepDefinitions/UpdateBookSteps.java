@@ -1,16 +1,19 @@
-package stepDefinitions;
-
-import io.cucumber.java.en.Given;
-import io.restassured.RestAssured;
+import io.cucumber.java.en.When;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 public class UpdateBookSteps {
 
-    private static final String BASE_URL = "http://localhost:7081/api"; // API base URL
+    private static Response response;
 
-    @Given("the {string} user is authenticated for update")
-    public void the_user_is_authenticated_for_update(String role) {
-        String username = role.equals("admin") ? "admin" : "user";
-        String password = "password";
-        RestAssured.authentication = RestAssured.basic(username, password);
+    @When("the {string} user updates a book with id {int}, title {string}, and author {string}")
+    public void the_user_updates_a_book_with_id_title_and_author(String role, int id, String title, String author) {
+        String requestBody = String.format("{\"id\": %d, \"title\": \"%s\", \"author\": \"%s\"}", id, title, author);
+
+        response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .put(BASE_URL + "/books/" + id);
     }
 }
