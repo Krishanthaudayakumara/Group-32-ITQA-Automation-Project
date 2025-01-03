@@ -58,7 +58,7 @@ public class ChangePasswordSteps {
         assertThat(actualMessage).contains(expectedMessage); // Use contains in case of additional text
     }
 
-    @Then("an error message should be displayed {string}")
+    @Then("an error message should be displayed for password {string}")
     public void verifyErrorMessage(String expectedMessage) {
         String actualMessage = changePasswordPage.getErrorMessage();
         assertThat(actualMessage)

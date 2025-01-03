@@ -60,5 +60,14 @@ public class EditProfileSteps {
                 .isTrue();
     }
 
+    @Then("an error message should be displayed {string}")
+    public void an_error_message_should_be_displayed(String expectedErrorMessage) {
+        Assertions.assertThat(editProfilePage.getErrorMessage())
+                .as("Expected error message is not displayed.")
+                .isEqualTo(expectedErrorMessage);
+    }
+
+
+
 
 }

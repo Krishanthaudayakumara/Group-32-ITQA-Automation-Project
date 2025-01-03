@@ -20,8 +20,7 @@ public class EditProfilePage extends PageObject {
     private By telephoneField = By.id("input-telephone");
     private By continueButton = By.cssSelector("input.btn.btn-primary");
     private By successAlert = By.cssSelector("div.alert.alert-success.alert-dismissible");
-
-
+    private By errorAlert = By.cssSelector("div.alert.alert-danger.alert-dismissible");
     // Methods to interact with the page
     public void navigateToEditProfilePage() {
         $(editProfileLink).click();
@@ -80,10 +79,16 @@ public class EditProfilePage extends PageObject {
         }
     }
 
-
-
-
-
+    public String getErrorMessage() {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.alert.alert-danger")));
+            return errorMessage.getText().trim();
+        } catch (TimeoutException e) {
+            System.out.println("Error message did not appear within the timeout.");
+            return "";
+        }
+    }
 
 
 }
