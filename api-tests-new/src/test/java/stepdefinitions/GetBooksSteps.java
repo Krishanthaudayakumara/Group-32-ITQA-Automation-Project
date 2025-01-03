@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class GetBooksSteps {
 
-    private static final String BASE_URL = ConfigLoader.getProperty("backend.url");;
+    private static final String BASE_URL = ConfigLoader.getProperty("backend.url");
     public RequestSpecification httpRequest;
     private static Response response;
     public int responseStatusCode;
