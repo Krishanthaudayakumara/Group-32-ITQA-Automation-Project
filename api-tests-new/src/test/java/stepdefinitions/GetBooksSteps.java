@@ -24,10 +24,16 @@ public class GetBooksSteps {
         RestAssured.authentication = RestAssured.basic(username, password);
     }
 
-    @When("This user sends the get API request")
-    public void thisUserSendsTheGetAPIRequest() {
+    @When("The user sends the get API request")
+    public void theUserSendsTheGetAPIRequest() {
             httpRequest = RestAssured.given();
             response = httpRequest.get(BASE_URL + "books");
+    }
+
+    @When("The admin sends the get API request")
+    public void theAdminSendsTheGetAPIRequest() {
+        httpRequest = RestAssured.given();
+        response = httpRequest.get(BASE_URL + "books");
     }
 
     @Then("The all available books should be retrieved successfully with status code as {int}")
