@@ -13,7 +13,7 @@ Feature: Get a book
   Scenario: Admin tries to get a book which is not available
     Given The "admin" is authenticated
     When The "admin" sends the get API request with 1000
-    Then The error message as "Book not found" should be appeared
+    Then The message as "Book not found" should be appeared
     And The status code should be retrieved as 404
 
   Scenario: Admin tries to get a book by passing a non integer value

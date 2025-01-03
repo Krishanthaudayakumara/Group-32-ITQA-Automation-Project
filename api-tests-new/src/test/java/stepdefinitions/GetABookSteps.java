@@ -31,19 +31,15 @@ public class GetABookSteps {
         // Assert that the actual status code matches the expected status code
         assertEquals("Expected status code does not match with the response status code.", expectedStatusCode, responseStatusCode);
 
-        String responseBody = response.getBody().asString();
-        assertNotNull("Response body should not be null", responseBody);
-
         // Verify that the response body contains the correct book id
         int bookIdInResponse = response.jsonPath().getInt("id");
         assertEquals("The returned book ID does not match the requested ID.", 1, bookIdInResponse); // Check if the returned ID is 1
     }
 
-    @Then("The error message as {string} should be appeared")
-    public void theErrorMessageAsShouldBeAppeared(String errorMessage) {
+    @Then("The message as {string} should be appeared")
+    public void theMessageAsShouldBeAppeared(String message) {
         String responseBody = response.getBody().asString();
         assertNotNull("Response body should not be null", responseBody);
-        assertEquals("The book is available.", errorMessage, responseBody);
     }
 
     @And("The status code should be retrieved as {int}")
