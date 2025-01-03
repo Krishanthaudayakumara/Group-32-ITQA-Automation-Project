@@ -17,8 +17,8 @@ public class GetABookSteps {
     private static Response response;
     public int responseStatusCode;
 
-    @When("The user sends the get API request with {int}")
-    public void theUserSendsTheGetAPIRequestWith(int bookId) {
+    @When("This user sends the get API request with {int}")
+    public void thisUserSendsTheGetAPIRequestWith(int bookId) {
         httpRequest = RestAssured.given();
         response = httpRequest.get(BASE_URL + "books/" + bookId);
     }
@@ -51,8 +51,8 @@ public class GetABookSteps {
         assertEquals("Expected status code does not match with the response status code.", expectedStatusCode, responseStatusCode);
     }
 
-    @When("The user sends the get API request with {string}")
-    public void theSendsTheGetAPIRequestWith(String string) {
+    @When("This user sends the get API request with {string}")
+    public void thisUserSendsTheGetAPIRequestWith(String string) {
         httpRequest = RestAssured.given();
         response = httpRequest.get(BASE_URL + "books/" + string);
     }
