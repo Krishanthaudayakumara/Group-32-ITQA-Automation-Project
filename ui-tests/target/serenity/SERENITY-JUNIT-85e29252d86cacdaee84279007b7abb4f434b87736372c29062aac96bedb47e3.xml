@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Guest Checkout Functionality" skipped="0" tests="2" time="165.4" timestamp="2025-01-03 10:05:09"><testcase name="Proceed to checkout as guest user"/><testcase name="Proceed to checkout as guest user with incorrect telephone number"><failure message="[Expected error message is not displayed.] &#10;expected: &quot;Invalid mobile number format.&quot;&#10; but was: &quot;&quot;" type="org.opentest4j.AssertionFailedError">[Expected error message is not displayed.] 
+expected: "Invalid mobile number format."
+ but was: ""</failure><system-err>[Expected error message is not displayed.] 
+expected: "Invalid mobile number format."
+ but was: ""
+steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)
+✽.an error message should be displayed "Invalid mobile number format."(classpath:features/guest_checkout.feature:32)
+</system-err></testcase></testsuite>
