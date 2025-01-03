@@ -25,6 +25,7 @@ public class CheckoutPage extends PageObject {
     private By ecoTax = By.xpath("//table[@id='checkout-total']/tbody/tr[3]/td[2]/strong");
     private By vat = By.xpath("//table[@id='checkout-total']/tbody/tr[4]/td[2]/strong");
     private By total = By.xpath("//table[@id='checkout-total']/tbody/tr[5]/td[2]/strong");
+    private By existingAddressLabel = By.xpath("//label[@for='input-payment-address-existing']");
     // Guest checkout
     private By guestCheckoutRadioButton = By.xpath("//label[@for='input-account-guest']");
     private By firstNameField = By.id("input-payment-firstname");
@@ -40,9 +41,15 @@ public class CheckoutPage extends PageObject {
 
 
     public void verifyCheckoutPage() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        WebElement headerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(checkoutPageHeader));
-        waitFor(headerElement);
+        try {
+            WebElement element = find(checkoutPageHeader);
+            waitForCondition().until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+//        WebElement headerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(checkoutPageHeader));
+//        waitFor(headerElement);
     }
 
     public String getProductName() {
@@ -151,4 +158,9 @@ public class CheckoutPage extends PageObject {
         $(zoneDropdown).selectByVisibleText(zone);
     }
 
+    public void selectExistingAddress(){
+        WebElement element = find(existingAddressLabel);
+        waitForCondition().until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
 }
