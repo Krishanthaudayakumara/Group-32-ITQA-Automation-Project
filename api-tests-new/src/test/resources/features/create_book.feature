@@ -2,7 +2,7 @@ Feature: Create a new book via the API
 
   @createBook
   Scenario: Admin user creates a book
-    Given the "admin" user is authorized/home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/CucumberTestSuite.java
+    Given the "admin" user is authorized
     When the "admin" user creates a book with title "Admin's Book 1" and author "Author A"
     Then the book should be created successfully with status code 201
 
