@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="2" name="User Workflow" skipped="0" tests="7" time="504.47" timestamp="2025-01-04 12:02:48"><testcase name="Add a new address to the address book"/><testcase name="Update the first address in the Address Book"/><testcase name="Delete the first address from the address book"/><testcase name="Successfully change the user password"/><testcase name="Failed password change due to incorrect current password"/><testcase name="Validate incorrect telephone number during profile update"><failure message="[User login failed, not redirected to account dashboard.] &#10;Expecting actual:&#10;  &quot;https://ecommerce-playground.lambdatest.io/?route=account/login&quot;&#10;to contain:&#10;  &quot;route=account/account&quot; " type="java.lang.AssertionError">[User login failed, not redirected to account dashboard.] 
+Expecting actual:
+  "https://ecommerce-playground.lambdatest.io/?route=account/login"
+to contain:
+  "route=account/account" </failure><system-err>[User login failed, not redirected to account dashboard.] 
+Expecting actual:
+  "https://ecommerce-playground.lambdatest.io/?route=account/login"
+to contain:
+  "route=account/account" 
+steps.EditProfileSteps.the_user_is_logged_in(EditProfileSteps.java:35)
+✽.the user is logged in for edit profile(classpath:features/UserAccountWorkFlow.feature:40)
+</system-err></testcase><testcase name="Successfully update all profile fields"><failure message="Expected success message is not displayed." type="org.opentest4j.AssertionFailedError">Expected success message is not displayed.</failure><system-err>Expected success message is not displayed.
+steps.EditProfileSteps.a_success_message_should_be_displayed(EditProfileSteps.java:60)
+✽.a success message should be displayed(classpath:features/UserAccountWorkFlow.feature:50)
+</system-err></testcase></testsuite>

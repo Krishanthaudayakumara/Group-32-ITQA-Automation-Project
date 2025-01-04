@@ -1,10 +1,7 @@
 Feature: Add Product to Cart
 
   Background:
-    Given the user is on the login page
-    When the user enters valid email and password
-    And the user clicks the login button
-    Then the user should be redirected to the account dashboard
+    Given the user is logged in
 
   Scenario: Add a product to the cart from the product details page
     Given the user is on the home page

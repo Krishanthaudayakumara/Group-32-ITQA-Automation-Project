@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven3'
+        jdk 'Java17'
+    }
+  environment {
+        ENV_FILE = '/var/jenkins_home/.env'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/Krishanthaudayakumara/Group-32-ITQA-Automation-Project.git', branch: 'dev'
+            }
+        }
+        stage('Build & Test') {
+            steps {
+                dir('ui-tests') {  // Change 'ui-tests' to the actual subdirectory containing your pom.xml
+                    sh 'mvn clean verify'
+                }
+            }
+        }
+        stage('Archive Serenity Reports') {
+            steps {
+                publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/serenity',
+                    reportFiles: 'index.html',
+                    reportName: 'Serenity Test Report'
+                ])
+            }
+        }
+    }
+    post {
+        always {
+            junit 'target/failsafe-reports/*.xml'
+            archiveArtifacts artifacts: 'target/serenity/**', fingerprint: true
+        }
+    }
+}

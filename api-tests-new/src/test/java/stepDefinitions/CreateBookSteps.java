@@ -6,19 +6,21 @@ import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.example.utils.ConfigLoader;
+import org.group32.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
 public class CreateBookSteps {
 
-    private String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
+    private static final String BASE_URL = ConfigLoader.getProperty("backend.url"); // API base URL
+    private static final String ADMIN_PASSWORD = "password"; // Hardcoded admin password
+    private static final String USER_PASSWORD = "password";   // Hardcoded user password
     private static Response response;  // Holds the response from the API
 
     @Given("the {string} user is authorized")
     public void the_user_is_authorized(String role) {
         String username = role.equals("admin") ? "admin" : "user";
-        String password = ConfigLoader.getProperty("password");
+        String password = role.equals("admin") ? ADMIN_PASSWORD : USER_PASSWORD;
         RestAssured.authentication = RestAssured.basic(username, password);
     }
 
@@ -30,7 +32,7 @@ public class CreateBookSteps {
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
-                .post(BASE_URL + "/books");
+                .post(BASE_URL + "books");
     }
 
     @Then("the book should be created successfully with status code 201")
@@ -38,4 +40,3 @@ public class CreateBookSteps {
         assertEquals(201, response.getStatusCode());
     }
 }
-

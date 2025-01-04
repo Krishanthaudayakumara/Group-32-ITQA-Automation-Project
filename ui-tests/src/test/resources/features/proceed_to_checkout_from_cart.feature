@@ -13,6 +13,7 @@ Feature: Proceed to Checkout from Cart
     And the user proceeds to checkout
     Then user navigate to checkout page
     And the checkout page should display the correct product and price details
+    And user pick existing address
     And the user accepts the terms and conditions
     And the user clicks the continue button
     Then the user should be able to see the confirm order page
