@@ -1,0 +1,116 @@
+-------------------------------------------------------------------------------
+Test set: CucumberTestSuite
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 923.5 s <<< FAILURE! -- in CucumberTestSuite
+User Workflow.Validate incorrect telephone number during profile update -- Time elapsed: 185.8 s <<< FAILURE!
+java.lang.AssertionError: 
+[User login failed, not redirected to account dashboard.] 
+Expecting actual:
+  "https://ecommerce-playground.lambdatest.io/?route=account/login"
+to contain:
+  "route=account/account" 
+	at steps.EditProfileSteps.the_user_is_logged_in(EditProfileSteps.java:35)
+	at ✽.the user is logged in for edit profile(classpath:features/UserAccountWorkFlow.feature:40)
+
+User Workflow.Successfully update all profile fields -- Time elapsed: 107.8 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected success message is not displayed.
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at steps.EditProfileSteps.a_success_message_should_be_displayed(EditProfileSteps.java:60)
+	at ✽.a success message should be displayed(classpath:features/UserAccountWorkFlow.feature:50)
+
+Category Page Testing.Products are displayed correctly on the category page -- Time elapsed: 5.027 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Product count mismatch ==> expected: <true> but was: <false>
+	at steps.CategoryPageSteps.total_product_count_should_match(CategoryPageSteps.java:63)
+	at ✽.the total number of products diaplayed should match the product count mentioned on the page(classpath:features/category_page.feature:16)
+
+Category Page Testing.Navigate through product pages -- Time elapsed: 0.023 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The URL did not update correctly to the new page ==> expected: <true> but was: <false>
+	at steps.CategoryPageSteps.theURLShouldUpdateToShowTheNewPage(CategoryPageSteps.java:93)
+	at ✽.the URL should update to show the new page(classpath:features/category_page.feature:29)
+
+Guest Checkout Functionality.Proceed to checkout as guest user -- Time elapsed: 65.96 s <<< ERROR!
+org.openqa.selenium.UnhandledAlertException: 
+Unexpected alert dialog detected. Performed handler "dismiss": 
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [de6d968d-d351-4429-8c12-7b5ad6b17239, findElement {value=//label[@for='input-account-guest'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 91561, moz:profile: /tmp/rust_mozprofileqwPZbs, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:5976/session...}
+Session ID: de6d968d-d351-4429-8c12-7b5ad6b17239
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:271)
+	at net.serenitybdd.core.pages.WebElementResolverByLocator.resolveForDriver(WebElementResolverByLocator.java:25)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getResolvedElement(WebElementFacadeImpl.java:188)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getElement(WebElementFacadeImpl.java:183)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.isDisplayed(WebElementFacadeImpl.java:1338)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at pages.CheckoutPage.chooseGuestCheckout(CheckoutPage.java:120)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout$accessor$cYg2gWJ8(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
+	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
+	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout(Unknown Source)
+	at steps.CheckoutSteps.the_user_chooses_guest_checkout(CheckoutSteps.java:47)
+	at ✽.the user chooses guest checkout(classpath:features/guest_checkout.feature:14)
+
+Guest Checkout Functionality.Proceed to checkout as guest user with incorrect telephone number -- Time elapsed: 57.32 s <<< ERROR!
+org.openqa.selenium.UnhandledAlertException: 
+Unexpected alert dialog detected. Performed handler "dismiss": 
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [07321272-2567-4fdd-bfa1-055425c79a9e, findElement {value=//label[@for='input-account-guest'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 92216, moz:profile: /tmp/rust_mozprofilejdCYmd, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:27578/sessio...}
+Session ID: 07321272-2567-4fdd-bfa1-055425c79a9e
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:271)
+	at net.serenitybdd.core.pages.WebElementResolverByLocator.resolveForDriver(WebElementResolverByLocator.java:25)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getResolvedElement(WebElementFacadeImpl.java:188)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.getElement(WebElementFacadeImpl.java:183)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.isDisplayed(WebElementFacadeImpl.java:1338)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at pages.CheckoutPage.chooseGuestCheckout(CheckoutPage.java:120)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout$accessor$cYg2gWJ8(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
+	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
+	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout(Unknown Source)
+	at steps.CheckoutSteps.the_user_chooses_guest_checkout(CheckoutSteps.java:47)
+	at ✽.the user chooses guest checkout(classpath:features/guest_checkout.feature:28)
+

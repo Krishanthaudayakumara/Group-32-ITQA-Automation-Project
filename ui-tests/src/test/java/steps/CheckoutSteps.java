@@ -61,9 +61,23 @@ public class CheckoutSteps {
         checkoutPage.enterPostCode("ABC123");
         checkoutPage.selectCountry("United Kingdom");
         checkoutPage.selectZone("Lancashire");
-
-
     }
+
+    @When("the user fills the all the checkout details with incorrect telephone number")
+    public void the_user_fills_the_all_the_checkout_details_with_incorrect_telephone_number(){
+        checkoutPage.enterFirstName("Test");
+        checkoutPage.enterLastName("User");
+        checkoutPage.enterEmail("testuser@example.com");
+        checkoutPage.enterTelephone("23212dasdsad");
+        checkoutPage.enterCompany("Test Company");
+        checkoutPage.enterAddress1("Test Address 1");
+        checkoutPage.enterAddress2("Test Address 2");
+        checkoutPage.enterCity("Test City");
+        checkoutPage.enterPostCode("ABC123");
+        checkoutPage.selectCountry("United Kingdom");
+        checkoutPage.selectZone("Lancashire");
+    }
+
     @Then("user navigate to checkout page")
     public void user_navigate_to_checkout_page() {
         checkoutPage.verifyCheckoutPage();
@@ -75,6 +89,11 @@ public class CheckoutSteps {
         productPrice = checkoutPage.getProductPrice();
         Assertions.assertThat(checkoutPage.getProductName()).isEqualTo(productName);
         Assertions.assertThat(checkoutPage.getProductPrice()).isEqualTo(productPrice);
+    }
+
+    @And("user pick existing address")
+    public void user_pick_existing_address() {
+        checkoutPage.selectExistingAddress();
     }
 
     @And("the user accepts the terms and conditions")
