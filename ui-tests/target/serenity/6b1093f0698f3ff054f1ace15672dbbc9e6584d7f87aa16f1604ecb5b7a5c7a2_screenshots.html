@@ -152,7 +152,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 03-01-2025 22:00</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 04-01-2025 12:06</span>
     <br style="clear:left"/>
 </div>
 
@@ -181,7 +181,7 @@
                         <td valign="top" align="right">
                             <p class="tag">
                                 <span class="badge tag-badge" style="background:default;"
-                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="c68fd6639ab29c4b0ac02a78bc39f4e22557bcaa40ef14c903ac0e584626edfe.html">1 To 2 Minutes
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="3ce388ea8511800032930896a3e5ba2c4f80e46f1a10b143b67009baf212c6a0.html">2 To 5 Minutes
                                         (Duration)
                                 </a>
                                 </span>
@@ -218,7 +218,7 @@
         <div class="table">
             <div class="row">
                 <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">Assertion failed error: [Expected error message is not displayed.] expected: 'Invalid mobile number format.' but was: 'Warning: E-Mail address is already registered!'</span>
+                    <span class="error-message error-message-title">Assertion error: [User login failed, not redirected to account dashboard.] Expecting actual:  'https://ecommerce-playground.lambdatest.io/?route=account/login'to contain:  'route=account/account'</span>
                 </div>
                 <div class="col-sm-2">
                     <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
@@ -234,11 +234,11 @@
         <div class="collapse multi-collapse" id="stacktraceModal-overall">
             <div class="card">
                 <div class="card-header">
-                    <h4>org.opentest4j.AssertionFailedError </h4>
+                    <h4>java.lang.AssertionError </h4>
                 </div>
                 <div class="card-body">
                     <div>
-                        <pre>steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)<br />✽.an error message should be displayed "Invalid mobile number format."(classpath:features/UserAccountWorkFlow.feature:43)<br /></pre>
+                        <pre>steps.EditProfileSteps.the_user_is_logged_in(EditProfileSteps.java:35)<br />✽.the user is logged in for edit profile(classpath:features/UserAccountWorkFlow.feature:40)<br /></pre>
                     </div>
 
                 </div>
@@ -248,11 +248,8 @@
             </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="38aef0bcb3c9c009a4ff0f01707787c66fcd4fb09bea3a21b8b951c05a3898a5.png" title=" Given the user is logged in for edit profile" width="0"/>
-                <img src="1e753ee47a4ed0ea161a173ddc27d0b8fda37fbaaf61bfe52119ab5b06008564.png" title=" And the user navigates to the edit profile page" width="0"/>
-                <img src="c345ca5aac694e649c291acdd6d9fc55a304d8f247a0ab454cefccdb8246ea81.png" title=" When the user updates their profile with first name &quot;John&quot;, last name &quot;Doe&quot;, email &quot;chinth@example.com&quot;, and telephone &quot;9876543210d&quot;" width="0"/>
 
-                <img src="c345ca5aac694e649c291acdd6d9fc55a304d8f247a0ab454cefccdb8246ea81.png" title=" Then an error message should be displayed "Invalid mobile number format.": <span class='failing-color'>FAILURE</span>" width="0"/>
+                <img src="143d6106e9e5b9a2d52fa36a70b66e5122a68fd0ae096bd926d6ff7ecd1b15c9.png" title=" Given the user is logged in for edit profile: <span class='failing-color'>FAILURE</span>" width="0"/>
             </div>
         </div>
 

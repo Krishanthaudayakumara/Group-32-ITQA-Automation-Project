@@ -7,6 +7,8 @@
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/steps/CheckoutSteps.java
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/steps/DeleteAddressSteps.java
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/pages/AddressBookPage.java
+/home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/pages/CategoryPage.java
+/home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/steps/CategoryPageSteps.java
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/pages/ProductPage.java
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/pages/CartPage.java
 /home/krishantha/Github/Group-32-ITQA-Automation-Project/ui-tests/src/test/java/steps/EditProfileSteps.java

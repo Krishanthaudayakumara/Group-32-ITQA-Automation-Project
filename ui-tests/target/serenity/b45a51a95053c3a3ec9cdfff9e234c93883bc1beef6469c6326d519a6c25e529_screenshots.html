@@ -152,7 +152,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 03-01-2025 22:08</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 04-01-2025 12:16</span>
     <br style="clear:left"/>
 </div>
 
@@ -194,9 +194,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="error-color">Proceed to checkout
+                                <span class="success-color">Proceed to checkout
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -213,67 +213,25 @@
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
-            <div class="screenshotFailure panel panel-danger">
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">Timeout exception: Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-overall">
-            <div class="card">
-                <div class="card-header">
-                    <h4>org.openqa.selenium.TimeoutException </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)<br />steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)<br />✽.the user should be able to see the confirm order page(classpath:features/proceed_to_checkout_from_cart.feature:19)<br /></pre>
-                    </div>
-
-                    <h4>
-                        Caused by: org.openqa.selenium.NoSuchElementException
-                    </h4>
-                    <div>
-                            <pre>Unable to locate element: //table//tfoot/tr[4]/td[2]<br>For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception<br>Build info: version: '4.27.0', revision: 'd6e718d134'<br>System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'<br>Driver info: org.openqa.selenium.firefox.FirefoxDriver<br>Command: [a1465d9a-7315-42d9-b027-705b2fff300a, findElement {using=xpath, value=//table//tfoot/tr[4]/td[2]}]<br>Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 93121, moz:profile: /tmp/rust_mozprofilevTaFdO, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:29647/sessio...}<br>Session ID: a1465d9a-7315-42d9-b027-705b2fff300a</pre>
-                        <pre>pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java :86)<br />steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java :126)<br /></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                    <div class="panel-body">
-                        <a href="pagesource2008277047499335113.html" target="_blank" class="btn btn-info">HTML Source</a>
-                    </div>
-            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="17789ec22c685cde29ffc0e6a48d617d49d26b9055105a5f96dfa9af1b0c5c44.png" title=" Given the user is logged in" width="0"/>
-                <img src="bf5d22fb67c510dc135e08e8b52fd63c6bb94baa71d81651d51b51cbaef14702.png" title=" And the user is on the home page" width="0"/>
-                <img src="bf5d22fb67c510dc135e08e8b52fd63c6bb94baa71d81651d51b51cbaef14702.png" title=" When the user selects a product from the product list" width="0"/>
-                <img src="24f97560f992ffaf2773eedf97701f9c69475ec1536fb18a849d893c3a064de3.png" title=" And the user navigates to the product details page" width="0"/>
-                <img src="24f97560f992ffaf2773eedf97701f9c69475ec1536fb18a849d893c3a064de3.png" title=" And the product is available" width="0"/>
-                <img src="020d2363e69f5ac3b307866ad5cf9dae1dcd3d7d62d6d806e179e45d39899e3a.png" title=" And the user adds the product to the cart" width="0"/>
-                <img src="881d57e8aa22bbcfb0200d1a52ca077b5b116e1a49a65f575b518369762a1875.png" title=" When the user navigates to the cart page" width="0"/>
-                <img src="88fed6b74f142a1d807d934f13565f2bc9376161e9bf8c704504558b6fe36c84.png" title=" And the user proceeds to checkout" width="0"/>
-                <img src="88fed6b74f142a1d807d934f13565f2bc9376161e9bf8c704504558b6fe36c84.png" title=" Then user navigate to checkout page" width="0"/>
-                <img src="88fed6b74f142a1d807d934f13565f2bc9376161e9bf8c704504558b6fe36c84.png" title=" And the checkout page should display the correct product and price details" width="0"/>
-                <img src="ec7c502d5e80704a682d0e09ba17e8b0a01ec34c601e6d34c572abfb3d0fc847.png" title=" And user pick existing address" width="0"/>
-                <img src="13acf3384b5042dddaf24d6248749dad18f41f8afc64f703864cf0c9fdeda6ac.png" title=" And the user accepts the terms and conditions" width="0"/>
-                <img src="e1cc0c73f80ca5090dc391b2a1cb4bf78ee461391382ee4716b903824c6dac0c.png" title=" And the user clicks the continue button" width="0"/>
-                <img src="50c3ab7b9b7191b9a543ede63ee366f90f4c36720cb5f432bc34f16871a833a9.png" title=" Then the user should be able to see the confirm order page" width="0"/>
+                <img src="38aef0bcb3c9c009a4ff0f01707787c66fcd4fb09bea3a21b8b951c05a3898a5.png" title=" Given the user is logged in" width="0"/>
+                <img src="9867a62a0c7b80ad23def30b3e2647db580a823a0e2c70e04d41474d389f0abe.png" title=" And the user is on the home page" width="0"/>
+                <img src="9867a62a0c7b80ad23def30b3e2647db580a823a0e2c70e04d41474d389f0abe.png" title=" When the user selects a product from the product list" width="0"/>
+                <img src="c9add81e18595a47527d1a20db68613e859aded5b95e2da7a31e8077d53beec4.png" title=" And the user navigates to the product details page" width="0"/>
+                <img src="c9add81e18595a47527d1a20db68613e859aded5b95e2da7a31e8077d53beec4.png" title=" And the product is available" width="0"/>
+                <img src="5bd3d0ffd21d476d2e963bb98f6e71dd8a19cbe289ea592fdb74f7b6c16d7c7c.png" title=" And the user adds the product to the cart" width="0"/>
+                <img src="c7fe574219f447a48c7344f15257abb84343da3d3419b4a0945d576446e524d5.png" title=" When the user navigates to the cart page" width="0"/>
+                <img src="8ef73dc272234df4596be2d30bc3c64bde4e6829b9905ce08ef4f1e308cec66f.png" title=" Then user navigate to checkout page" width="0"/>
+                <img src="3818867ea8a013b65d8106df219140b8dcd806caf2d8db97f894c6050e0e9a39.png" title=" And the checkout page should display the correct product and price details" width="0"/>
+                <img src="5c7862428b2ab276edc878b7d2d0f272763c7052eff18aa8e359db9e48804282.png" title=" And user pick existing address" width="0"/>
+                <img src="efaae5f1ccf3a0c93fef2d91227d0f38d6649a3f3135874b56982553804a1625.png" title=" And the user accepts the terms and conditions" width="0"/>
+                <img src="e3c508cb672c242e2de33c0220cc9c7df60d42430b1a14ab66db18319e6c0a22.png" title=" And the user clicks the continue button" width="0"/>
+                <img src="9d22d74a6c5441c11f0293b9a22410e776afd3ad0817eb5ad6ccb2ddb1ef6b3d.png" title=" Then the user should be able to see the confirm order page" width="0"/>
+                <img src="122f14d70ffa6f1660da310342174984b39a2ad55df92758b6bdeacfe14dbde9.png" title=" And the user confirms the order" width="0"/>
+                <img src="03a3bd4a0be09508275952f50eff1a903d22b603e3d034e15ea5eef358283600.png" title=" Then the user navigates to the success page" width="0"/>
 
-                <img src="50c3ab7b9b7191b9a543ede63ee366f90f4c36720cb5f432bc34f16871a833a9.png" title=" Get vat: <span class='error-color'>ERROR</span>" width="0"/>
+                <img src="9867a62a0c7b80ad23def30b3e2647db580a823a0e2c70e04d41474d389f0abe.png" title=" And user click continue button: <span class='success-color'>SUCCESS</span>" width="0"/>
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 pages/EditProfilePage.class
 pages/HomePage.class
+pages/CategoryPage.class
 steps/DeleteAddressSteps.class
 steps/LoginSteps.class
 CucumberTestSuite.class
@@ -15,5 +16,6 @@ pages/SuccessPage.class
 steps/CheckoutSteps.class
 pages/CheckoutPage.class
 pages/ProductPage.class
+steps/CategoryPageSteps.class
 steps/ChangePasswordSteps.class
 pages/LoginPage.class

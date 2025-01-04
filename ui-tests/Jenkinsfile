@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven3'  // Ensure 'Maven3' is configured in Jenkins (Manage Jenkins > Global Tool Configuration)
+        jdk 'Java17'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'dev', url: 'https://github.com/your-repo.git'
+            }
+        }
+        stage('Build & Test') {
+            steps {
+                sh 'mvn clean verify'
+            }
+        }
+        stage('Archive Serenity Reports') {
+            steps {
+                publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/serenity',
+                    reportFiles: 'index.html',
+                    reportName: 'Serenity Test Report'
+                ])
+            }
+        }
+    }
+    post {
+        always {
+            junit 'target/failsafe-reports/*.xml'
+            archiveArtifacts artifacts: 'target/serenity/**', fingerprint: true
+        }
+    }
+}

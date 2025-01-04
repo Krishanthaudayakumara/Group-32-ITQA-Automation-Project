@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Buy Now and Checkout" skipped="0" tests="1" time="61.48" timestamp="2025-01-03 10:04:05"><testcase name="Proceed to checkout by Buy Now"><error message="Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)</error><system-err>Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)
-pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)
-steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)
-✽.the user should be able to see the confirm order page(classpath:features/buy_now_and_checkout.feature:17)
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Buy Now and Checkout" skipped="0" tests="1" time="57.05" timestamp="2025-01-04 12:12:22"><testcase name="Proceed to checkout by Buy Now"/></testsuite>

@@ -152,7 +152,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 03-01-2025 22:06</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 04-01-2025 12:15</span>
     <br style="clear:left"/>
 </div>
 
@@ -181,7 +181,7 @@
                         <td valign="top" align="right">
                             <p class="tag">
                                 <span class="badge tag-badge" style="background:default;"
-                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="c68fd6639ab29c4b0ac02a78bc39f4e22557bcaa40ef14c903ac0e584626edfe.html">1 To 2 Minutes
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="5698da923f295f46ce5ab64ced2311fc60caa4e36b32112606d3adcfdce3f60b.html">30 To 60 Seconds
                                         (Duration)
                                 </a>
                                 </span>
@@ -194,9 +194,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="failing-color">Proceed to checkout as guest user with incorrect telephone number
+                                <span class="error-color">Proceed to checkout as guest user with incorrect telephone number
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -218,7 +218,7 @@
         <div class="table">
             <div class="row">
                 <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">Assertion failed error: [Expected error message is not displayed.] expected: 'Invalid mobile number format.' but was: ''</span>
+                    <span class="error-message error-message-title">Unhandled alert exception: Unexpected alert dialog detected. Performed handler 'dismiss': Build info: version: '4.27.0', revision: 'd6e718d134'System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'Driver info: org.openqa.selenium.firefox.FirefoxDriverCommand: [07321272-2567-4fdd-bfa1-055425c79a9e, findElement {value=//label[@for='input-account-guest'], using=xpath}]Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 92216, moz:profile: /tmp/rust_mozprofilejdCYmd, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:27578/sessio...}Session ID: 07321272-2567-4fdd-bfa1-055425c79a9e</span>
                 </div>
                 <div class="col-sm-2">
                     <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
@@ -234,34 +234,33 @@
         <div class="collapse multi-collapse" id="stacktraceModal-overall">
             <div class="card">
                 <div class="card-header">
-                    <h4>org.opentest4j.AssertionFailedError </h4>
+                    <h4>org.openqa.selenium.UnhandledAlertException </h4>
                 </div>
                 <div class="card-body">
                     <div>
-                        <pre>steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)<br />✽.an error message should be displayed "Invalid mobile number format."(classpath:features/guest_checkout.feature:32)<br /></pre>
+                        <pre>pages.CheckoutPage.chooseGuestCheckout(CheckoutPage.java:120)<br />steps.CheckoutSteps.the_user_chooses_guest_checkout(CheckoutSteps.java:47)<br />✽.the user chooses guest checkout(classpath:features/guest_checkout.feature:28)<br /></pre>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
+                    <div class="panel-body">
+                        <a href="pagesource6898628913549717800.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    </div>
             </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="a1fa9b51d07cc517270f0037757aec65c98688d874e31abe6a653b86792533f0.png" title=" Given the user is not logged in" width="0"/>
                 <img src="9867a62a0c7b80ad23def30b3e2647db580a823a0e2c70e04d41474d389f0abe.png" title=" And the user is on the home page" width="0"/>
                 <img src="9867a62a0c7b80ad23def30b3e2647db580a823a0e2c70e04d41474d389f0abe.png" title=" When the user selects a product from the product list" width="0"/>
-                <img src="fe22c416cb5579eabb2417461c134e2d4dd4c666856353558bbe5dc49e614d70.png" title=" And the user navigates to the product details page" width="0"/>
-                <img src="fe22c416cb5579eabb2417461c134e2d4dd4c666856353558bbe5dc49e614d70.png" title=" And the product is available" width="0"/>
+                <img src="4293b260a70b8048ed6d29b262940bd68406273a0410752f349c30eeb2d2f85a.png" title=" And the user navigates to the product details page" width="0"/>
+                <img src="4293b260a70b8048ed6d29b262940bd68406273a0410752f349c30eeb2d2f85a.png" title=" And the product is available" width="0"/>
                 <img src="be6ad85151c2c29c7a2cac7eef8022aa14da3d9cdab2a39b4b330766c05c5347.png" title=" And the user adds the product to the cart" width="0"/>
                 <img src="c7fe574219f447a48c7344f15257abb84343da3d3419b4a0945d576446e524d5.png" title=" And the user navigates to the cart page" width="0"/>
-                <img src="537885f00bac5b1ee4e9438d4f0e8c8f8e8edd061a039370b2a93eb1617d7ac0.png" title=" When the user proceeds to checkout" width="0"/>
-                <img src="de97b74bebe7e029783c09c00b745673df779940f2f023655625282a64a1cf7e.png" title=" And the user chooses guest checkout" width="0"/>
-                <img src="de97b74bebe7e029783c09c00b745673df779940f2f023655625282a64a1cf7e.png" title=" Then user navigate to checkout page" width="0"/>
-                <img src="de97b74bebe7e029783c09c00b745673df779940f2f023655625282a64a1cf7e.png" title=" And the checkout page should display the correct product and price details" width="0"/>
-                <img src="d2baddca1ca0e14c95163c7b6f5a3c7e3eb82e3b1bd59c87e8ce7868ae2901e9.png" title=" When the user fills the all the checkout details with incorrect telephone number" width="0"/>
+                <img src="8ef73dc272234df4596be2d30bc3c64bde4e6829b9905ce08ef4f1e308cec66f.png" title=" And the user chooses guest checkout" width="0"/>
 
-                <img src="9d9433cea4f592d00406351e27ac991a8df3abc9d2227b5dc0f7a9d4c40a87e0.png" title=" Then an error message should be displayed "Invalid mobile number format.": <span class='failing-color'>FAILURE</span>" width="0"/>
+                <img src="8ef73dc272234df4596be2d30bc3c64bde4e6829b9905ce08ef4f1e308cec66f.png" title=" Choose guest checkout: <span class='error-color'>ERROR</span>" width="0"/>
             </div>
         </div>
 

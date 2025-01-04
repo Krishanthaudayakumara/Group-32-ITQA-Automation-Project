@@ -1,113 +1,43 @@
 -------------------------------------------------------------------------------
 Test set: CucumberTestSuite
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 3, Errors: 3, Skipped: 0, Time elapsed: 782.6 s <<< FAILURE! -- in CucumberTestSuite
-User Workflow.Delete the first address from the address book -- Time elapsed: 47.70 s <<< ERROR!
-org.openqa.selenium.NoSuchElementException: 
-Expected condition failed: waiting for By.cssSelector: div.alert.alert-success.alert-dismissible to be displayed (tried for 5 second(s) with 100 milliseconds interval)
-Build info: version: '4.27.0', revision: 'd6e718d134'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
-Driver info: driver.version: unknown
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.throwNoSuchElementExceptionWithCauseIfPresent(WebElementFacadeImpl.java:1021)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.checkPresenceOfWebElement(WebElementFacadeImpl.java:994)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilVisible(WebElementFacadeImpl.java:1001)
-	at pages.AddressBookPage.getDeleteSuccessMessage(AddressBookPage.java:115)
-	at pages.AddressBookPage$ByteBuddy$scWaa6bO.getDeleteSuccessMessage$accessor$Hitm7j3V(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
-	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
-	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
-	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
-	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
-	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.AddressBookPage$ByteBuddy$scWaa6bO.getDeleteSuccessMessage(Unknown Source)
-	at steps.DeleteAddressSteps.a_success_message_should_be_displayed(DeleteAddressSteps.java:58)
-	at ✽.a success delete message should be displayed(classpath:features/UserAccountWorkFlow.feature:21)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for By.cssSelector: div.alert.alert-success.alert-dismissible to be displayed (tried for 5 second(s) with 100 milliseconds interval)
-Build info: version: '4.27.0', revision: 'd6e718d134'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.checkPresenceOfWebElement(WebElementFacadeImpl.java:988)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilVisible(WebElementFacadeImpl.java:1001)
-	at pages.AddressBookPage.getDeleteSuccessMessage(AddressBookPage.java:115)
-	at pages.AddressBookPage$ByteBuddy$scWaa6bO.getDeleteSuccessMessage$accessor$Hitm7j3V(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
-	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
-	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
-	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
-	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
-	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.AddressBookPage$ByteBuddy$scWaa6bO.getDeleteSuccessMessage(Unknown Source)
-	at steps.DeleteAddressSteps.a_success_message_should_be_displayed(DeleteAddressSteps.java:58)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.lambda$runTestCase$4(CucumberEngineExecutionContext.java:114)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.runTestCase(CucumberEngineExecutionContext.java:111)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:168)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Tests run: 19, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 923.5 s <<< FAILURE! -- in CucumberTestSuite
+User Workflow.Validate incorrect telephone number during profile update -- Time elapsed: 185.8 s <<< FAILURE!
+java.lang.AssertionError: 
+[User login failed, not redirected to account dashboard.] 
+Expecting actual:
+  "https://ecommerce-playground.lambdatest.io/?route=account/login"
+to contain:
+  "route=account/account" 
+	at steps.EditProfileSteps.the_user_is_logged_in(EditProfileSteps.java:35)
+	at ✽.the user is logged in for edit profile(classpath:features/UserAccountWorkFlow.feature:40)
 
-User Workflow.Validate incorrect telephone number during profile update -- Time elapsed: 78.39 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
-[Expected error message is not displayed.] 
-expected: "Invalid mobile number format."
- but was: "Warning: E-Mail address is already registered!"
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)
-	at ✽.an error message should be displayed "Invalid mobile number format."(classpath:features/UserAccountWorkFlow.feature:43)
-
-User Workflow.Successfully update all profile fields -- Time elapsed: 61.48 s <<< FAILURE!
+User Workflow.Successfully update all profile fields -- Time elapsed: 107.8 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected success message is not displayed.
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at steps.EditProfileSteps.a_success_message_should_be_displayed(EditProfileSteps.java:60)
 	at ✽.a success message should be displayed(classpath:features/UserAccountWorkFlow.feature:50)
 
-Buy Now and Checkout.Proceed to checkout by Buy Now -- Time elapsed: 64.01 s <<< ERROR!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)
-	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat$accessor$cRLtDUd4(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
-	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
-	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
-	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
-	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
-	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat(Unknown Source)
-	at steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)
-	at ✽.the user should be able to see the confirm order page(classpath:features/buy_now_and_checkout.feature:17)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: //table//tfoot/tr[4]/td[2]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Category Page Testing.Products are displayed correctly on the category page -- Time elapsed: 5.027 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Product count mismatch ==> expected: <true> but was: <false>
+	at steps.CategoryPageSteps.total_product_count_should_match(CategoryPageSteps.java:63)
+	at ✽.the total number of products diaplayed should match the product count mentioned on the page(classpath:features/category_page.feature:16)
+
+Category Page Testing.Navigate through product pages -- Time elapsed: 0.023 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The URL did not update correctly to the new page ==> expected: <true> but was: <false>
+	at steps.CategoryPageSteps.theURLShouldUpdateToShowTheNewPage(CategoryPageSteps.java:93)
+	at ✽.the URL should update to show the new page(classpath:features/category_page.feature:29)
+
+Guest Checkout Functionality.Proceed to checkout as guest user -- Time elapsed: 65.96 s <<< ERROR!
+org.openqa.selenium.UnhandledAlertException: 
+Unexpected alert dialog detected. Performed handler "dismiss": 
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [61ac6b9e-2707-47cb-bae4-9a79ef937d65, findElement {using=xpath, value=//table//tfoot/tr[4]/td[2]}]
-Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 90463, moz:profile: /tmp/rust_mozprofileJrQo2S, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:21972/sessio...}
-Session ID: 61ac6b9e-2707-47cb-bae4-9a79ef937d65
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+Command: [de6d968d-d351-4429-8c12-7b5ad6b17239, findElement {value=//label[@for='input-account-guest'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 91561, moz:profile: /tmp/rust_mozprofileqwPZbs, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:5976/session...}
+Session ID: de6d968d-d351-4429-8c12-7b5ad6b17239
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
@@ -125,9 +55,11 @@ Session ID: 61ac6b9e-2707-47cb-bae4-9a79ef937d65
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat$accessor$cRLtDUd4(Unknown Source)
+	at pages.CheckoutPage.chooseGuestCheckout(CheckoutPage.java:120)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout$accessor$cYg2gWJ8(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
 	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
@@ -135,68 +67,20 @@ Session ID: 61ac6b9e-2707-47cb-bae4-9a79ef937d65
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat(Unknown Source)
-	at steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.lambda$runTestCase$4(CucumberEngineExecutionContext.java:114)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.runTestCase(CucumberEngineExecutionContext.java:111)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:168)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout(Unknown Source)
+	at steps.CheckoutSteps.the_user_chooses_guest_checkout(CheckoutSteps.java:47)
+	at ✽.the user chooses guest checkout(classpath:features/guest_checkout.feature:14)
 
-Guest Checkout Functionality.Proceed to checkout as guest user with incorrect telephone number -- Time elapsed: 64.74 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
-[Expected error message is not displayed.] 
-expected: "Invalid mobile number format."
- but was: ""
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at steps.EditProfileSteps.an_error_message_should_be_displayed(EditProfileSteps.java:67)
-	at ✽.an error message should be displayed "Invalid mobile number format."(classpath:features/guest_checkout.feature:32)
-
-Proceed to Checkout from Cart.Proceed to checkout -- Time elapsed: 56.87 s <<< ERROR!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of By.xpath: //table//tfoot/tr[4]/td[2] (tried for 5 second(s) with 250 milliseconds interval)
-	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat$accessor$cRLtDUd4(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
-	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
-	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:425)
-	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
-	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
-	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat(Unknown Source)
-	at steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)
-	at ✽.the user should be able to see the confirm order page(classpath:features/proceed_to_checkout_from_cart.feature:19)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: //table//tfoot/tr[4]/td[2]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Guest Checkout Functionality.Proceed to checkout as guest user with incorrect telephone number -- Time elapsed: 57.32 s <<< ERROR!
+org.openqa.selenium.UnhandledAlertException: 
+Unexpected alert dialog detected. Performed handler "dismiss": 
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-39-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [a1465d9a-7315-42d9-b027-705b2fff300a, findElement {using=xpath, value=//table//tfoot/tr[4]/td[2]}]
-Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 93121, moz:profile: /tmp/rust_mozprofilevTaFdO, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:29647/sessio...}
-Session ID: a1465d9a-7315-42d9-b027-705b2fff300a
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+Command: [07321272-2567-4fdd-bfa1-055425c79a9e, findElement {value=//label[@for='input-account-guest'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 132.0.1, moz:accessibilityChecks: false, moz:buildID: 20241103194048, moz:geckodriverVersion: 0.35.0, moz:headless: true, moz:platformVersion: 6.2.0-39-generic, moz:processID: 92216, moz:profile: /tmp/rust_mozprofilejdCYmd, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86..., webSocketUrl: ws://127.0.0.1:27578/sessio...}
+Session ID: 07321272-2567-4fdd-bfa1-055425c79a9e
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:136)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
@@ -214,9 +98,11 @@ Session ID: a1465d9a-7315-42d9-b027-705b2fff300a
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at pages.ConfirmOrderPage.getVat(ConfirmOrderPage.java:86)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat$accessor$cRLtDUd4(Unknown Source)
+	at pages.CheckoutPage.chooseGuestCheckout(CheckoutPage.java:120)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout$accessor$cYg2gWJ8(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
 	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
@@ -224,28 +110,7 @@ Session ID: a1465d9a-7315-42d9-b027-705b2fff300a
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at pages.ConfirmOrderPage$ByteBuddy$FKIU6zDG.getVat(Unknown Source)
-	at steps.CheckoutSteps.the_user_should_be_able_to_see_the_confirm_order_page(CheckoutSteps.java:126)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.lambda$runTestCase$4(CucumberEngineExecutionContext.java:114)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
-	at io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.runTestCase(CucumberEngineExecutionContext.java:111)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:168)
-	at io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at pages.CheckoutPage$ByteBuddy$ofy268Fo.chooseGuestCheckout(Unknown Source)
+	at steps.CheckoutSteps.the_user_chooses_guest_checkout(CheckoutSteps.java:47)
+	at ✽.the user chooses guest checkout(classpath:features/guest_checkout.feature:28)
 
