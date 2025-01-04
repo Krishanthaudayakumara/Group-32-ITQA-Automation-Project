@@ -1,8 +1,11 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3'  // Ensure 'Maven3' is configured in Jenkins (Manage Jenkins > Global Tool Configuration)
+        maven 'Maven3'
         jdk 'Java17'
+    }
+  environment {
+        ENV_FILE = '/var/jenkins_home/.env'
     }
     stages {
         stage('Checkout') {
