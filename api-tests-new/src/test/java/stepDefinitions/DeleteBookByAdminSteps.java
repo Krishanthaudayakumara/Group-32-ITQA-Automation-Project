@@ -5,7 +5,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.example.utils.ConfigLoader;
+import org.group32.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
@@ -25,12 +25,11 @@ public class DeleteBookByAdminSteps {
         // Send DELETE request to delete the book by ID
         response = RestAssured.given()
                 .when()
-                .delete(BASE_URL + "/books/" + bookId);
+                .delete(BASE_URL + "books/" + bookId);
     }
 
     @Then("the book should be deleted successfully with status code 200")
-    public void the_book_should_be_deleted_successfully() {
-        // Assert that the response status code is 200 (OK)
+    public void the_book_should_delete_succesfully() {
         assertEquals(200, response.getStatusCode());
     }
 

@@ -13,7 +13,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
                 "html:target/cucumber-reports.html",  // HTML report
                 "json:target/cucumber-reports/cucumber.json"  // JSON report for Serenity
         },
-        tags = " @createBook or @updateBook or @deleteBook",  // Optional: Tag filter (can be used for specific tests)
+        //tags = " @createBook or @createExistingBook @updateBook or @deleteBook or @getABook or @getBooks",  // Optional: Tag filter (can be used for specific tests)
         monochrome = true  // Make console output more readable
 )
 public class ApiTestRunner { }
