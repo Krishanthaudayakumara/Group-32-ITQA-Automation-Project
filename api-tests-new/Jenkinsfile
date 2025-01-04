@@ -8,12 +8,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Krishanthaudayakumara/Group-32-ITQA-Automation-Project.git', branch: 'feature/api-reports'
+                git url: 'https://github.com/Krishanthaudayakumara/Group-32-ITQA-Automation-Project.git', branch: 'feature/204069D-jenkins'
             }
         }
         stage('Build & Test') {
             steps {
-                dir('ui-tests') {  // Change 'ui-tests' to the actual subdirectory containing your pom.xml
+                dir('api-tests-new') {  // Change 'ui-tests' to the actual subdirectory containing your pom.xml
                     sh 'mvn clean verify'
                 }
             }
