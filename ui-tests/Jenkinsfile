@@ -12,7 +12,9 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                sh 'mvn clean verify'
+                dir('ui-tests') {  // Change 'ui-tests' to the actual subdirectory containing your pom.xml
+                    sh 'mvn clean verify'
+                }
             }
         }
         stage('Archive Serenity Reports') {
