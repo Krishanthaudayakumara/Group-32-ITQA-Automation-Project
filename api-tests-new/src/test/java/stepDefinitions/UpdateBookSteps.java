@@ -1,61 +1,62 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.group32.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
 public class UpdateBookSteps {
 
-    private static final String BASE_URL = "http://localhost:7081/api"; // API base URL
-    private Response response;
+    private static final String BASE_URL = ConfigLoader.getProperty("backend.url");
+    private RequestSpecification httpRequest;
+    private static Response response;
+    private int responseStatusCode;
 
-    @Given("the {string} user is authenticated for update")
-    public void the_user_is_authenticated_for_update(String role) {
+    @Given("The {string} user is authenticated for update")
+    public void theUserIsAuthenticatedForUpdate(String role) {
         String username = role.equals("admin") ? "admin" : "user";
-        String password = "password";
-        RestAssured.given().auth().basic(username, password);
+        String password = ConfigLoader.getProperty("password");
+        RestAssured.authentication = RestAssured.basic(username, password);
     }
 
-    @When("the {string} user updates a book with id {int}, title {string}, and author {string}")
-    public void the_user_updates_a_book_with_id_title_and_author(String role, int id, String title, String author) {
-        String requestBody = String.format("{\"id\": %d, \"title\": \"%s\", \"author\": \"%s\"}", id, title, author);
+    @When("The {string} user updates a book with id {int}, title {string}, and author {string}")
+    public void theUserUpdatesABookWithIdTitleAndAuthor(String role, int bookId, String title, String author) {
+        httpRequest = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .body("{ \"id\": " + bookId + ", \"title\": \"" + title + "\", \"author\": \"" + author + "\" }");
 
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .put(BASE_URL + "/books/" + id);
+        response = httpRequest.put(BASE_URL + "books/" + bookId);
     }
 
-    @When("the request body contains id {int}")
-    public void the_request_body_contains_id(int requestBodyId) {
-        String requestBody = String.format("{\"id\": %d, \"title\": \"Valid Title\", \"author\": \"Valid Author\"}", requestBodyId);
+    @When("The {string} user updates a book with mismatched ids {int} and {int}")
+    public void theUserUpdatesABookWithMismatchedIds(String role, int pathId, int bodyId) {
+        httpRequest = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .body("{ \"id\": " + bodyId + ", \"title\": \"Valid Title\", \"author\": \"Valid Author\" }");
 
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .put(BASE_URL + "/books/1");
+        response = httpRequest.put(BASE_URL + "books/" + pathId);
     }
 
-    @Then("the book should be updated successfully with status code {int}")
-    public void the_book_should_be_updated_successfully(int statusCode) {
-        assertEquals(statusCode, response.getStatusCode());
+    @Then("The book should be updated successfully with status code {int}")
+    public void theBookShouldBeUpdatedSuccessfully(int expectedStatusCode) {
+        responseStatusCode = response.getStatusCode();
+        assertEquals("Expected status code does not match the response status code.", expectedStatusCode, responseStatusCode);
     }
 
-    @Then("an error response with status code {int} should be returned")
-    public void an_error_response_should_be_returned(int statusCode) {
-        assertEquals(statusCode, response.getStatusCode());
+    @Then("An error response with status code {int} should be returned")
+    public void anErrorResponseWithStatusCodeShouldBeReturned(int expectedStatusCode) {
+        responseStatusCode = response.getStatusCode();
+        assertEquals("Expected error status code does not match the response status code.", expectedStatusCode, responseStatusCode);
     }
 
-    @Then("the response message should contain {string}")
-    public void the_response_message_should_contain(String expectedMessage) {
+    @Then("The response message should contain {string}")
+    public void theResponseMessageShouldContain(String expectedMessage) {
         String responseBody = response.getBody().asString();
-        assertTrue(responseBody.contains(expectedMessage));
+        assertTrue("Response message does not contain the expected text.", responseBody.contains(expectedMessage));
     }
 }
