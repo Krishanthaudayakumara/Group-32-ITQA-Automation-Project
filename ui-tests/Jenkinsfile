@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'dev', url: 'https://github.com/your-repo.git'
+                git url: 'https://github.com/Krishanthaudayakumara/Group-32-ITQA-Automation-Project.git', branch: 'dev'
             }
         }
         stage('Build & Test') {
