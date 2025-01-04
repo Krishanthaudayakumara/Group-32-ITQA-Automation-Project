@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.example.utils.ConfigLoader;
+import org.group32.utils.ConfigLoader;
 
 import static org.junit.Assert.*;
 
@@ -15,14 +15,14 @@ public class MandatoryParamsValidationSteps {
     private static Response response;
 
     @When("the {string} attempts to create a book with title {string} and author {string}")
-    public void the_attempts_to_create_a_book_with_title_and_author(String role, String title, String author) {
+    public void the_attempts_to_create_a_book_with_empty_title_and_author(String role, String title, String author) {
         String requestBody = String.format("{\"title\": \"%s\", \"author\": \"%s\"}", title, author);
 
         response = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
-                .post(BASE_URL + "/books");
+                .post(BASE_URL + "books");
     }
 
     @Then("the book should not be created and should return status code 400")

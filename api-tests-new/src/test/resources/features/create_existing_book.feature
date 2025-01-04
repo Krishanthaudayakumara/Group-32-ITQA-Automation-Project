@@ -1,13 +1,13 @@
 Feature: Create a Book with an Existing Title
 
+  @createExistingBook
   Scenario: Admin attempts to create a book with an existing title
-    Given the admin is authorized to create books
-    When the admin tries to create a book with the title "Existing Book" that already exists
-    Then the system should return a status code "409" for the admin
-    And the system should display an error message "Book with the same title already exists" for the admin
+    Given the "admin" can not able to create existing book
+    When the "admin" tries to recreate a book with the title "Admin's Book 1" and author "Author A"
+    Then system should return a status code "409"
 
+  @createExistingBook
   Scenario: User attempts to create a book with an existing title
-    Given the user is authorized to create books
-    When the user tries to create a book with the title "Existing Book" that already exists
-    Then the system should return a status code "409" for the user
-    And the system should display an error message "Book with the same title already exists" for the user
+    Given the "user" can not able to create existing book
+    When the "user" tries to recreate a book with the title "Admin's Book 1" and author "Author A"
+    Then system should return a status code "409"

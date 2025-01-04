@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.group32.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
