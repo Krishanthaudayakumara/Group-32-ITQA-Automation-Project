@@ -1,4 +1,4 @@
-Feature: Create a Book with an Existing Title
+Feature: Create a Book with an Existing Title Via API
 
   @createExistingBook
   Scenario: Admin attempts to create a book with an existing title

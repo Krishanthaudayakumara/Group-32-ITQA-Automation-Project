@@ -1,4 +1,4 @@
-Feature: User attempts to delete a book via the API
+Feature: User deletes a book via the API
 
   @deleteBookByUser
   Scenario: User deletes an existing book
