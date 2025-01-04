@@ -3,7 +3,7 @@ Feature: Admin deletes a book via the API
   @deleteBookByAdmin
   Scenario: Admin deletes an existing book
     Given the admin user is authorized to delete books
-    When the admin deletes a book with id 1
+    When the admin deletes a book with id 2
     Then the book should be deleted successfully with status code 200
 
   @deleteInvalidBookByAdmin
