@@ -1,0 +1,63 @@
+name: Cucumber Application Test
+
+on:
+  push:
+    branches:
+      - feature/api-reports
+  pull_request:
+    branches:
+      - feature/api-reports
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: feature/api-reports
+
+      # Step 2: Set up JDK
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      # Step 3: Set up Maven
+      - name: Set up Maven
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+          cache: 'maven'
+
+      # Step 4: Build and Test
+      - name: Build and Run Tests
+        working-directory: api-test-new # Change 'api-test-new' to your actual subdirectory
+        run: mvn clean verify
+
+      # Step 5: Archive Serenity Reports
+      - name: Upload Serenity Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: serenity-reports
+          path: api-test-new/target/serenity/
+
+      # Step 6: Publish Serenity HTML Report
+      - name: Publish Serenity Report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: api-test-new/target/serenity/
+          publish_branch: gh-pages
+
+      # Step 7: Upload JUnit Test Results
+      - name: Upload JUnit Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-results
+          path: api-test-new/target/failsafe-reports/*.xml
